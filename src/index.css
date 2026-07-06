@@ -1,0 +1,409 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── Canonical Design System — El Refugio Atómico (synced with dashboard.feelagain.me) ── */
+/* Deep petrol-teal blueprint background + copper humanitarian puzzle accent + gold + blueprint teal lines */
+@layer base {
+  :root {
+    --background: 187 80% 7%;
+    --foreground: 180 25% 94%;
+
+    --card: 189 73% 12%;
+    --card-foreground: 180 25% 94%;
+
+    --popover: 189 73% 12%;
+    --popover-foreground: 180 25% 94%;
+
+    --primary: 25 55% 51%;
+    --primary-foreground: 187 78% 7%;
+
+    --secondary: 189 50% 16%;
+    --secondary-foreground: 176 18% 80%;
+
+    --muted: 189 40% 14%;
+    --muted-foreground: 176 18% 65%;
+
+    --accent: 176 65% 54%;
+    --accent-foreground: 187 78% 7%;
+
+    --destructive: 7 75% 63%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 176 65% 54% / 0.14;
+    --input: 189 50% 16%;
+    --ring: 25 55% 51%;
+
+    --radius: 0.5rem;
+
+    --copper: 25 55% 51%;
+    --copper-bright: 29 75% 64%;
+    --gold: 30 54% 64%;
+    --gold-bright: 38 78% 70%;
+    --teal: 176 65% 54%;
+    --teal-foreground: 187 78% 7%;
+    --navy-deep: 187 85% 5%;
+    --navy-mid: 189 73% 12%;
+    --purple: 270 60% 60%;
+    --purple-foreground: 270 80% 92%;
+    --coral: 7 78% 62%;
+    --emerald: 152 65% 50%;
+    --emerald-foreground: 165 80% 92%;
+
+    --cyan-glow: 176 75% 64%;
+    --cyan-dim: 176 40% 30%;
+
+    --gradient-copper: linear-gradient(135deg, hsl(25 55% 51%), hsl(29 75% 64%));
+    --gradient-teal: linear-gradient(135deg, hsl(176 65% 54%), hsl(176 70% 40%));
+    --gradient-hero:
+      linear-gradient(180deg,
+        hsl(189 85% 6%) 0%,
+        hsl(187 80% 9%) 22%,
+        hsl(186 70% 14%) 48%,
+        hsl(28 55% 32%) 84%,
+        hsl(32 80% 48%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(189 73% 12%), hsl(189 60% 9%));
+    --gradient-text-hero: linear-gradient(135deg, hsl(176 75% 64%) 0%, hsl(30 54% 64%) 50%, hsl(25 55% 51%) 100%);
+    --gradient-blueprint: repeating-linear-gradient(0deg, transparent 0, transparent 39px, hsl(176 65% 54% / 0.06) 39px, hsl(176 65% 54% / 0.06) 40px),
+                          repeating-linear-gradient(90deg, transparent 0, transparent 39px, hsl(176 65% 54% / 0.06) 39px, hsl(176 65% 54% / 0.06) 40px);
+    --gradient-accent: linear-gradient(135deg, hsl(25 55% 51%), hsl(176 65% 54%));
+
+    --shadow-copper: 0 4px 30px -5px hsl(25 60% 40% / 0.35);
+    --shadow-teal: 0 4px 30px -5px hsl(176 65% 54% / 0.25);
+    --shadow-card: 0 8px 40px -10px hsl(187 80% 3% / 0.6);
+    --shadow-elevated: 0 20px 60px -15px hsl(187 80% 3% / 0.8);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Light theme — same deep teal-to-copper, slightly warmer ── */
+  [data-theme="light"] {
+    --background: 187 75% 9%;
+    --foreground: 40 35% 96%;
+
+    --card: 186 60% 14%;
+    --card-foreground: 40 35% 96%;
+
+    --popover: 186 60% 14%;
+    --popover-foreground: 40 35% 96%;
+
+    --primary: 25 70% 56%;
+    --primary-foreground: 187 78% 8%;
+
+    --secondary: 186 45% 22%;
+    --secondary-foreground: 40 30% 92%;
+
+    --muted: 186 38% 20%;
+    --muted-foreground: 40 25% 78%;
+
+    --accent: 176 60% 60%;
+    --accent-foreground: 187 78% 8%;
+
+    --destructive: 7 75% 60%;
+    --destructive-foreground: 40 35% 98%;
+
+    --border: 176 50% 60% / 0.22;
+    --input: 186 45% 22%;
+    --ring: 25 70% 56%;
+
+    --gold: 32 80% 60%;
+    --gold-bright: 38 92% 70%;
+    --copper: 25 75% 54%;
+    --copper-bright: 29 88% 68%;
+    --navy-deep: 186 80% 6%;
+    --navy-mid: 186 60% 12%;
+    --coral: 7 82% 60%;
+    --emerald: 152 65% 50%;
+
+    --gradient-hero:
+      linear-gradient(180deg,
+        hsl(187 78% 8%) 0%,
+        hsl(186 70% 13%) 24%,
+        hsl(186 55% 20%) 52%,
+        hsl(28 58% 32%) 84%,
+        hsl(32 85% 50%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(186 60% 14%), hsl(186 50% 10%));
+    --gradient-blueprint:
+      repeating-linear-gradient(0deg, transparent 0, transparent 39px, hsl(176 60% 60% / 0.07) 39px, hsl(176 60% 60% / 0.07) 40px),
+      repeating-linear-gradient(90deg, transparent 0, transparent 39px, hsl(176 60% 60% / 0.07) 39px, hsl(176 60% 60% / 0.07) 40px);
+    --gradient-text-hero: linear-gradient(90deg, hsl(40 35% 98%) 0%, hsl(32 80% 64%) 55%, hsl(25 70% 50%) 100%);
+
+    --shadow-card: 0 6px 28px -10px hsl(186 70% 6% / 0.55);
+    --shadow-elevated: 0 18px 50px -14px hsl(186 70% 6% / 0.75);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body {
+    min-height: 100%;
+  }
+  body {
+    @apply text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    /* Full-page deep teal → copper gradient, fixed so it covers the entire scroll length. */
+    background: var(--gradient-hero);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: hsl(var(--navy-deep));
+    padding-top: clamp(112px, 14vh, 132px); /* clear fixed HorizonRail on top */
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  .cyan-gradient-text,
+  .gold-gradient-text {
+    background: var(--gradient-text-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .copper-gradient-text {
+    background: var(--gradient-copper);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-elevated {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    @apply border border-border rounded-lg;
+  }
+  .blueprint-bg { background-image: var(--gradient-blueprint); }
+
+  /* ── Horizon rail — subtle legibility wash, gradient not broken ── */
+  .horizon-wash {
+    background: linear-gradient(180deg,
+      hsl(var(--navy-deep) / 0.55) 0%,
+      hsl(var(--navy-deep) / 0.32) 55%,
+      hsl(var(--navy-deep) / 0) 100%);
+    backdrop-filter: blur(6px) saturate(105%);
+    -webkit-backdrop-filter: blur(6px) saturate(105%);
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
+  /* ───────────────────────────────────────────────────────────── */
+  /* COPPER RING — taller, thicker, single continuous surface     */
+  /* ───────────────────────────────────────────────────────────── */
+  /* Patinated bronze ring — cylindrical body, oxidized verdigris bloom.
+     Stronger top→bottom curvature so on narrow screens it still reads as a
+     rounded ring, not a flat strip. */
+  .copper-surface-xl {
+    background:
+      /* cylindrical body shading — narrow lit band ~30% from top, no sharp
+         top/bottom slope edges */
+      linear-gradient(180deg,
+        hsl(32 45% 34%) 0%,
+        hsl(34 52% 40%) 18%,
+        hsl(36 55% 44%) 30%,
+        hsl(28 42% 30%) 55%,
+        hsl(22 30% 18%) 82%,
+        hsl(20 25% 14%) 100%),
+      /* patina bloom — sized in px so it is immune to user font-size
+         changes and browser zoom keeps proportions identical */
+      radial-gradient(128px 96px at 22% 38%, hsl(165 55% 42% / 0.32), transparent 70%),
+      radial-gradient(112px 80px at 78% 62%, hsl(155 50% 38% / 0.28), transparent 72%),
+      radial-gradient(80px 64px at 50% 25%, hsl(78 45% 50% / 0.22), transparent 70%);
+    background-size:
+      100% 100%,
+      256px 192px,
+      224px 160px,
+      160px 128px;
+    background-repeat: no-repeat, repeat, repeat, repeat;
+    background-blend-mode: normal, overlay, overlay, overlay;
+    /* Font-size independent so the ring surface renders identically
+       regardless of user base font settings. */
+    font-size: 16px;
+    box-shadow:
+      /* internal cylindrical shading only — no sharp top/bottom edge bevels */
+      inset 0 18px 28px -12px hsl(82 35% 55% / 0.22),
+      inset 0 -34px 48px -18px hsl(186 85% 4% / 0.78),
+      0 24px 50px -14px hsl(186 85% 4% / 0.65),
+      0 38px 90px -32px hsl(28 50% 22% / 0.45);
+  }
+  /* Mottled oxidation grain — sized in px so density looks identical on
+     iOS Retina, Android xxhdpi, desktop, and under user font-size overrides. */
+  .copper-moire {
+    background-image:
+      radial-gradient(3px 2px at 12% 30%, hsl(82 40% 60% / 0.18), transparent 70%),
+      radial-gradient(2px 2px at 28% 70%, hsl(165 50% 50% / 0.20), transparent 70%),
+      radial-gradient(3px 2px at 47% 22%, hsl(72 35% 55% / 0.15), transparent 70%),
+      radial-gradient(2px 2px at 63% 80%, hsl(155 45% 45% / 0.18), transparent 70%),
+      radial-gradient(3px 2px at 81% 36%, hsl(82 40% 58% / 0.16), transparent 70%),
+      radial-gradient(2px 2px at 92% 65%, hsl(165 50% 48% / 0.18), transparent 70%),
+      repeating-linear-gradient(0deg, hsl(82 30% 50% / 0.04) 0 1px, transparent 1px 4px);
+    background-size: 224px 100%, 224px 100%, 224px 100%, 224px 100%, 224px 100%, 224px 100%, auto;
+    font-size: 16px;
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .copper-moire { display: none; }
+  }
+
+  /* Engraved lens-style tick marks. Renders as recessed grooves
+     using a paired light/dark hairline trick. Sits along a row edge. */
+  .lens-notches {
+    background-image:
+      repeating-linear-gradient(90deg,
+        transparent 0 8px,
+        hsl(186 85% 3% / 0.7) 8px 9px,
+        hsl(82 40% 65% / 0.35) 9px 10px,
+        transparent 10px 18px);
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+  }
+  .lens-notches-tall {
+    background-image:
+      repeating-linear-gradient(90deg,
+        transparent 0 14px,
+        hsl(186 85% 3% / 0.75) 14px 15px,
+        hsl(82 40% 65% / 0.4) 15px 16px,
+        transparent 16px 28px);
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+  }
+
+  /* Row bands inside the ring — flush at rest, gain a thin "surface-color"
+     hairline gap when any movable layer is in motion. */
+  .row-band {
+    position: relative;
+    transition: box-shadow 220ms ease;
+  }
+  .row-band.row-moving,
+  .row-band:has(+ .row-moving),
+  .row-moving + .row-band {
+    box-shadow:
+      inset 0 1px 0 hsl(var(--background) / 0.55),
+      inset 0 -1px 0 hsl(var(--background) / 0.55);
+  }
+
+  /* Heated-metal text reveal — fades to almost-zero during motion,
+     "warms back up" at rest. No emboss, no inset shadow. */
+  .heated-text {
+    color: hsl(40 100% 95%);
+    text-shadow:
+      0 0 1px hsl(186 85% 5% / 0.45),
+      0 0 14px hsl(38 95% 70% / 0.0);
+    transition:
+      opacity 320ms ease,
+      filter 320ms ease,
+      text-shadow 480ms ease;
+    will-change: opacity, filter;
+  }
+  .heated-text.heat-on {
+    opacity: 1;
+    filter: brightness(1.05) saturate(1.05);
+    text-shadow:
+      0 0 1px hsl(186 85% 5% / 0.55),
+      0 0 10px hsl(38 95% 70% / 0.45),
+      0 0 22px hsl(29 85% 60% / 0.25);
+    animation: heatPulse 4.5s ease-in-out infinite;
+  }
+  .heated-text.heat-cool {
+    opacity: 0.08;
+    filter: brightness(0.55) blur(0.4px);
+    text-shadow: none;
+    animation: none;
+  }
+  @keyframes heatPulse {
+    0%, 100% { text-shadow: 0 0 1px hsl(186 85% 5% / 0.55), 0 0 8px hsl(38 95% 70% / 0.35), 0 0 18px hsl(29 85% 60% / 0.18); }
+    50%      { text-shadow: 0 0 1px hsl(186 85% 5% / 0.55), 0 0 14px hsl(38 95% 75% / 0.55), 0 0 28px hsl(29 85% 65% / 0.32); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .heated-text { animation: none !important; transition: none !important; }
+    .heated-text.heat-cool { opacity: 0.4; }
+  }
+
+  /* Row 3 asset labels (no emboss — glow only) */
+  .asset-label-idle {
+    color: hsl(40 60% 78% / 0.7);
+    text-shadow: 0 0 1px hsl(186 85% 5% / 0.6);
+    transition: color 250ms ease, text-shadow 250ms ease;
+  }
+  .asset-label-active {
+    color: hsl(40 100% 96%);
+    text-shadow:
+      0 0 1px hsl(186 85% 5% / 0.6),
+      0 0 10px hsl(38 95% 70% / 0.65),
+      0 0 22px hsl(29 85% 60% / 0.35);
+  }
+  .asset-pip {
+    width: 28px; height: 4px; border-radius: 2px;
+    background: linear-gradient(180deg, hsl(40 90% 80% / 0.6), hsl(25 60% 38% / 0.7));
+    box-shadow: 0 1px 0 hsl(40 95% 92% / 0.4);
+  }
+  .asset-pip-active {
+    background: linear-gradient(180deg, hsl(40 100% 96%), hsl(38 88% 70%));
+    box-shadow:
+      0 0 12px hsl(38 95% 75% / 0.95),
+      0 0 24px hsl(38 95% 65% / 0.55),
+      0 1px 0 hsl(40 100% 98%);
+  }
+  .sub-diamond {
+    background: linear-gradient(135deg, hsl(38 80% 72% / 0.6), hsl(25 60% 36% / 0.7));
+  }
+  .sub-diamond-active {
+    background: linear-gradient(135deg, hsl(40 100% 92%), hsl(25 75% 45%));
+    box-shadow:
+      0 0 12px hsl(29 85% 60% / 0.85),
+      0 0 22px hsl(38 95% 65% / 0.45);
+  }
+
+  /* ───────────────────────────────────────────────────────────── */
+  /* GOLD METAL PLATES — for tags / kickers / chips                */
+  /* ───────────────────────────────────────────────────────────── */
+  /* Flat gold plates — single tone, no 3D bevel, no shadow. */
+  .plate-gold {
+    color: hsl(186 85% 10%);
+    background: hsl(38 85% 62%);
+    border: 1px solid hsl(32 70% 42%);
+    letter-spacing: 0.12em;
+  }
+  .plate-gold-mini {
+    color: hsl(186 85% 10%);
+    background: hsl(38 85% 62%);
+    border: 1px solid hsl(32 70% 42%);
+  }
+
+  .stat-number {
+    font-family: var(--font-mono);
+    @apply text-primary font-medium;
+  }
+
+  .divider-cyan {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, hsl(var(--accent) / 0.4), transparent);
+  }
+
+  .tag-layer {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border uppercase tracking-wider;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+  .tag-fintech   { @apply tag-layer bg-primary/10 text-primary border-primary/30; }
+  .tag-digital   { @apply tag-layer bg-accent/10  text-accent  border-accent/30; }
+  .tag-clinical  { @apply tag-layer bg-emerald/10 text-emerald border-emerald/30; }
+  .tag-regulatory{ @apply tag-layer bg-coral/10   text-coral   border-coral/30; }
+  .tag-gold {
+    @apply inline-flex items-center px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase plate-gold;
+  }
+}
