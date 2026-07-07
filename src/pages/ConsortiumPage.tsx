@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useT } from "@/i18n";
 import SiteFooter from "@/components/SiteFooter";
+import OutputFormats from "@/components/OutputFormats";
 import { usePageSections } from "@/context/PageNavContext";
 import openSociety from "@/assets/logos/open-society.png";
 import enkidu from "@/assets/logos/enkidu.png";
@@ -76,6 +77,7 @@ const ConsortiumPage = () => {
     { id: "manifest", label: "Маніфест" },
     { id: "partners", label: "Партнери" },
     { id: "benefits", label: "Аргумент приєднання" },
+    { id: "outputs", label: "Деліверейбли" },
     { id: "join", label: "Долучитися" },
   ]);
 
