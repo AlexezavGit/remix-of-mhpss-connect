@@ -1,31 +1,30 @@
 import HeroSection from "@/components/HeroSection";
 import WhyExists from "@/components/WhyExists";
-import HowItWorks from "@/components/HowItWorks";
 import NarrativePillars from "@/components/NarrativePillars";
 import ThreeDirections from "@/components/ThreeDirections";
 import ImpactChain from "@/components/ImpactChain";
-import ConnectionAxes from "@/components/ConnectionAxes";
-import CostOfInaction from "@/components/CostOfInaction";
-import RoiModels from "@/components/RoiModels";
-import ProgramRollout from "@/components/ProgramRollout";
-import Consortium from "@/components/Consortium";
 import SiteFooter from "@/components/SiteFooter";
+import { usePageSections } from "@/context/PageNavContext";
 
-const Index = () => (
-  <div className="min-h-screen">
-    <HeroSection />
-    <WhyExists />
-    <HowItWorks />
-    <NarrativePillars />
-    <ThreeDirections />
-    <ImpactChain />
-    <ConnectionAxes />
-    <CostOfInaction />
-    <RoiModels />
-    <ProgramRollout />
-    <Consortium />
-    <SiteFooter />
-  </div>
-);
+const Index = () => {
+  usePageSections([
+    { id: "hero", label: "Огляд" },
+    { id: "why", label: "Чому" },
+    { id: "pillars", label: "Стовпи" },
+    { id: "directions", label: "Напрями" },
+    { id: "impact", label: "Вплив" },
+  ]);
+
+  return (
+    <div className="min-h-screen">
+      <section id="hero" className="scroll-mt-32"><HeroSection /></section>
+      <section id="why" className="scroll-mt-32"><WhyExists /></section>
+      <section id="pillars" className="scroll-mt-32"><NarrativePillars /></section>
+      <section id="directions" className="scroll-mt-32"><ThreeDirections /></section>
+      <section id="impact" className="scroll-mt-32"><ImpactChain /></section>
+      <SiteFooter />
+    </div>
+  );
+};
 
 export default Index;
