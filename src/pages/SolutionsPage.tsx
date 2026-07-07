@@ -4,6 +4,8 @@ import HowItWorks from "@/components/HowItWorks";
 import ThreeDirections from "@/components/ThreeDirections";
 import ConnectionAxes from "@/components/ConnectionAxes";
 import LayerArchitecture from "@/components/LayerArchitecture";
+import TheoryOfChange from "@/components/TheoryOfChange";
+import ImpactFeasibilityMatrix from "@/components/ImpactFeasibilityMatrix";
 import SiteFooter from "@/components/SiteFooter";
 import { usePageSections } from "@/context/PageNavContext";
 
@@ -11,8 +13,10 @@ const SolutionsPage = () => {
   usePageSections([
     { id: "overview", label: "Огляд" },
     { id: "how", label: "Як працює" },
+    { id: "toc", label: "Theory of Change" },
     { id: "architecture", label: "Архітектура" },
     { id: "directions", label: "Напрями" },
+    { id: "prioritization", label: "Пріоритизація" },
     { id: "axes", label: "Осі зв'язку" },
   ]);
 
@@ -41,6 +45,10 @@ const SolutionsPage = () => {
         <HowItWorks />
       </section>
 
+      <section id="toc" className="scroll-mt-32">
+        <TheoryOfChange />
+      </section>
+
       <section id="architecture" className="scroll-mt-32">
         <LayerArchitecture />
       </section>
@@ -48,6 +56,8 @@ const SolutionsPage = () => {
       <section id="directions" className="scroll-mt-32">
         <ThreeDirections />
       </section>
+
+      <ImpactFeasibilityMatrix />
 
       <section id="axes" className="scroll-mt-32">
         <ConnectionAxes />
