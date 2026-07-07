@@ -1,5 +1,7 @@
 import DirectionPageLayout from "@/components/DirectionPageLayout";
 import { motion } from "framer-motion";
+import BlendedFinance from "@/components/BlendedFinance";
+import { usePageSections } from "@/context/PageNavContext";
 
 const waterfall = [
   { k: "Найближче оточення", v: "P2P-внески, спільнокошт («банка», «толока»)" },
@@ -33,12 +35,20 @@ const sectors = [
   },
 ];
 
-const FinancePage = () => (
+const FinancePage = () => {
+  usePageSections([
+    { id: "waterfall", label: "Water­fall" },
+    { id: "blended", label: "Blended Finance" },
+    { id: "scoring", label: "Scoring" },
+    { id: "sectors", label: "Сектори" },
+  ]);
+  return (
   <DirectionPageLayout
     tag="02 · Фінансування"
     title="Цифрові рейки для змішаного фінансування"
     lead="Як Visa або Mastercard для сектору MHPSS. Зворотній водоспад ресурсів — від найближчого оточення до глобальних донорів. Scoring Matrix, смарт-контракти, ескроу за результатом."
   >
+    <BlendedFinance />
     <section className="py-16 bg-transparent">
       <div className="section-container space-y-14">
         {/* Reverse waterfall */}
