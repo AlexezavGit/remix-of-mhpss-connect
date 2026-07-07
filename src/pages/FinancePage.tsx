@@ -195,6 +195,7 @@ const FinancePage = () => {
       </div>
     </section>
   </DirectionPageLayout>
-);
+  );
+};
 
 export default FinancePage;
