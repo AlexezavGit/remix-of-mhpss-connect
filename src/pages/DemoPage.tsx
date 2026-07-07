@@ -1,0 +1,222 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { toast } from "@/hooks/use-toast";
+import GoldenScenario from "@/components/GoldenScenario";
+import ScoringMatrix from "@/components/ScoringMatrix";
+import SiteFooter from "@/components/SiteFooter";
+import { usePageSections } from "@/context/PageNavContext";
+
+const audiences = [
+  { tag: "tag-fintech", audience: "Банкіри та держава", title: "Payment Infrastructure", desc: "Платіжна інфраструктура для MHPSS: масштаб, регуляторна пісочниця, ROI." },
+  { tag: "tag-digital", audience: "Гуманітарники та донори", title: "Digital Accountability", desc: "Digital tracking транзакцій + narrative autoreporting донору в реальному часі." },
+  { tag: "tag-clinical", audience: "Клініцисти та практики", title: "Digital Practice", desc: "CRM, звітність, потік клієнтів і вихід з тіні через дегресивну ставку 7→3%." },
+];
+
+const faqs = [
+  { q: "Скільки коштує державі?", a: "Нуль. Програма фінансується через дегресивну комісію 7→3% з обороту, який проходить через рейки." },
+  { q: "Хто вже підписаний?", a: "НБУ Regulatory Sandbox, 38 банків через Хартію інклюзії, консорціум USC Viterbi · Clalit · KNU · Open Society · Enkidu · Quoroom." },
+  { q: "Який timeline?", a: "Pilot Q2 2026 у пісочниці НБУ · ~200K співробітників банків. Рік 3 — ціль 50-60K практикуючих спеціалістів." },
+  { q: "Що я побачу на демо?", a: "Живий Scoring Matrix на реальних анонімізованих даних, Golden Scenario, і як ваша роль вписується у три-квадрантну модель." },
+];
+
+const DemoPage = () => {
+  usePageSections([
+    { id: "request", label: "Запит демо" },
+    { id: "see", label: "Що ви побачите" },
+    { id: "scenario", label: "Golden Scenario" },
+    { id: "scoring", label: "Scoring Matrix" },
+    { id: "faq", label: "FAQ" },
+  ]);
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    org: "",
+    role: "",
+    country: "Ukraine",
+    interest: "Payment Infrastructure",
+    notes: "",
+    consent: false,
+  });
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.consent) {
+      toast({ title: "Потрібна згода на обробку даних", variant: "destructive" });
+      return;
+    }
+    console.log("[demo:request]", form);
+    toast({ title: "Запит надіслано", description: "Ми звʼяжемось із вами найближчим часом." });
+    setForm({ ...form, name: "", email: "", org: "", role: "", notes: "", consent: false });
+  };
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero + form (Bloomberg contact-menu style) */}
+      <section id="request" className="pt-40 pb-16" style={{ background: "var(--gradient-hero)" }}>
+        <div className="section-container">
+          <div className="grid lg:grid-cols-2 gap-10">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <span className="tag-fintech mb-3">Демо · Request access</span>
+              <h1 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-4 tracking-tight text-foreground">
+                Request a Feel Again demo
+              </h1>
+              <p className="text-base text-secondary-foreground mb-8 max-w-lg">
+                Живий обхід платформи для банкірів, донорів і клініцистів. 30 хвилин, під ваш use-case,
+                з реальними даними з MHPSS-сектору України.
+              </p>
+              <div id="see" className="space-y-4 scroll-mt-32">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/55">Що ви побачите</div>
+                {[
+                  { n: "01", t: "Payment rails у дії", d: "Escrow, Triple Verification Oracle, дегресивна ставка на живих транзакціях." },
+                  { n: "02", t: "Scoring Matrix", d: "40% процес · 45% клінічне покращення · 15% повернення до функціонування." },
+                  { n: "03", t: "Reverse Waterfall", d: "Від громади до глобального донора — з прозорістю на кожному рівні." },
+                  { n: "04", t: "Ваша роль", d: "Як конкретна організація вписується у три-квадрантну модель." },
+                ].map((x) => (
+                  <div key={x.n} className="flex gap-3 p-3 rounded-lg border border-border/60 bg-card/40">
+                    <div className="font-mono text-xs text-[hsl(var(--gold-bright))] shrink-0">{x.n}</div>
+                    <div>
+                      <div className="font-display text-sm font-bold text-foreground">{x.t}</div>
+                      <div className="text-xs text-secondary-foreground">{x.d}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.form
+              onSubmit={submit}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="card-elevated p-6 md:p-8 h-fit sticky top-56"
+            >
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { k: "name", label: "Full name*", type: "text" },
+                  { k: "email", label: "Work email*", type: "email" },
+                  { k: "org", label: "Organization*", type: "text" },
+                  { k: "role", label: "Role", type: "text" },
+                  { k: "country", label: "Country", type: "text" },
+                ].map((f) => (
+                  <label key={f.k} className={`text-xs text-muted-foreground ${f.k === "email" || f.k === "name" ? "col-span-2" : ""}`}>
+                    <span className="font-mono uppercase tracking-widest text-[9px]">{f.label}</span>
+                    <input
+                      required={f.label.endsWith("*")}
+                      type={f.type}
+                      value={(form as Record<string, string | boolean>)[f.k] as string}
+                      onChange={(e) => setForm({ ...form, [f.k]: e.target.value })}
+                      className="mt-1 w-full h-9 px-3 rounded-md bg-background border border-border text-sm text-foreground focus:outline-none focus:border-[hsl(var(--gold-bright))]"
+                    />
+                  </label>
+                ))}
+                <label className="col-span-2 text-xs text-muted-foreground">
+                  <span className="font-mono uppercase tracking-widest text-[9px]">Interest</span>
+                  <select
+                    value={form.interest}
+                    onChange={(e) => setForm({ ...form, interest: e.target.value })}
+                    className="mt-1 w-full h-9 px-3 rounded-md bg-background border border-border text-sm text-foreground focus:outline-none focus:border-[hsl(var(--gold-bright))]"
+                  >
+                    <option>Payment Infrastructure</option>
+                    <option>Digital Accountability</option>
+                    <option>Digital Practice</option>
+                    <option>Consortium partnership</option>
+                  </select>
+                </label>
+                <label className="col-span-2 text-xs text-muted-foreground">
+                  <span className="font-mono uppercase tracking-widest text-[9px]">Notes</span>
+                  <textarea
+                    value={form.notes}
+                    onChange={(e) => setForm({ ...form, notes: e.target.value })}
+                    rows={3}
+                    className="mt-1 w-full px-3 py-2 rounded-md bg-background border border-border text-sm text-foreground focus:outline-none focus:border-[hsl(var(--gold-bright))]"
+                  />
+                </label>
+                <label className="col-span-2 flex gap-2 items-start text-xs text-muted-foreground mt-1">
+                  <input
+                    type="checkbox"
+                    checked={form.consent}
+                    onChange={(e) => setForm({ ...form, consent: e.target.checked })}
+                    className="mt-0.5"
+                  />
+                  <span>Я погоджуюсь на обробку моїх даних Feel Again для цілей комунікації щодо демо.</span>
+                </label>
+              </div>
+              <button
+                type="submit"
+                className="mt-5 w-full h-11 rounded-md bg-[hsl(var(--gold-bright))] text-background font-mono uppercase tracking-[0.22em] text-xs font-bold hover:opacity-90 transition-opacity"
+              >
+                Request demo →
+              </button>
+              <p className="mt-3 text-[10px] text-muted-foreground text-center">
+                Вже маєте доступ? <Link to="/login" className="text-[hsl(var(--gold-bright))] hover:underline">Увійти</Link>
+              </p>
+            </motion.form>
+          </div>
+        </div>
+      </section>
+
+      {/* Three audiences */}
+      <section className="py-14 bg-transparent">
+        <div className="section-container">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Три аудиторії — одна інфраструктура</h2>
+          <div className="grid md:grid-cols-3 gap-5">
+            {audiences.map((d, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="card-elevated p-6"
+              >
+                <span className={d.tag}>{d.audience}</span>
+                <h3 className="font-display text-base font-semibold text-foreground mt-3 mb-2">{d.title}</h3>
+                <p className="text-sm text-secondary-foreground">{d.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="scenario" className="scroll-mt-32">
+        <GoldenScenario />
+      </section>
+
+      <section id="scoring" className="scroll-mt-32">
+        <ScoringMatrix />
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-16 bg-transparent scroll-mt-32">
+        <div className="section-container max-w-3xl">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">Часті питання</h2>
+          <div className="space-y-2">
+            {faqs.map((f, i) => (
+              <div key={i} className="card-elevated overflow-hidden">
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between p-5 text-left"
+                >
+                  <span className="font-display text-base font-bold text-foreground">{f.q}</span>
+                  <span className="text-[hsl(var(--gold-bright))] font-mono">{openFaq === i ? "−" : "+"}</span>
+                </button>
+                {openFaq === i && (
+                  <div className="px-5 pb-5 text-sm text-secondary-foreground border-t border-border/40 pt-3">
+                    {f.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SiteFooter />
+    </div>
+  );
+};
+
+export default DemoPage;
