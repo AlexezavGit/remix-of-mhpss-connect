@@ -90,6 +90,5 @@ const OutputFormats = () => (
     </div>
   </section>
 );
-};
 
 export default OutputFormats;
