@@ -52,7 +52,7 @@ const FinancePage = () => {
     <section className="py-16 bg-transparent">
       <div className="section-container space-y-14">
         {/* Reverse waterfall */}
-        <div>
+        <div id="waterfall" className="scroll-mt-40">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
             Зворотній водоспад ресурсів
           </h2>
@@ -79,7 +79,7 @@ const FinancePage = () => {
         </div>
 
         {/* Scoring Matrix */}
-        <div>
+        <div id="scoring" className="scroll-mt-40">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
             Scoring Matrix та смарт-контракт
           </h2>
@@ -143,7 +143,7 @@ const FinancePage = () => {
         </div>
 
         {/* Sectors */}
-        <div>
+        <div id="sectors" className="scroll-mt-40">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">
             Чому фінансовий сектор — перший
           </h2>
