@@ -88,7 +88,8 @@ const OutputFormats = () => (
         ))}
       </div>
     </div>
-  );
+  </section>
+);
 };
 
 export default OutputFormats;
