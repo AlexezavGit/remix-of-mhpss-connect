@@ -166,6 +166,8 @@ const ConsortiumPage = () => {
         </div>
       </section>
 
+      <OutputFormats />
+
       {/* CTA */}
       <section id="join" className="py-20 bg-transparent scroll-mt-32">
         <div className="section-container text-center">
