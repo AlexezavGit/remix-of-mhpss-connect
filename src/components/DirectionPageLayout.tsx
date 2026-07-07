@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import NavigationBar from "@/components/NavigationBar";
+
 import SiteFooter from "@/components/SiteFooter";
 import { useT } from "@/i18n";
 
@@ -15,8 +15,7 @@ type Props = {
 const DirectionPageLayout = ({ tag, title, lead, children }: Props) => {
   const { t } = useT();
   return (
-    <div className="min-h-screen bg-background">
-      <NavigationBar />
+    <div className="min-h-screen bg-background pt-32">
       <section
         className="pt-28 pb-12 relative overflow-hidden"
         style={{ background: "var(--gradient-hero)" }}
