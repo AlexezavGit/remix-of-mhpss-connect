@@ -46,7 +46,13 @@ const App = () => (
                 <Route path="/finance" element={<FinancePage />} />
                 <Route path="/sustainability" element={<SustainabilityPage />} />
                 <Route path="/demo" element={<DemoPage />} />
-                <Route path="/login" element={<LoginPage />} />
+                <Route path="/users" element={<UsersPage />} />
+                <Route path="/users/beneficiary" element={<BeneficiaryPage />} />
+                <Route path="/users/provider" element={<ProviderPage />} />
+                <Route path="/users/donor" element={<DonorPage />} />
+                {/* Legacy /login → /users */}
+                <Route path="/login" element={<Navigate to="/users" replace />} />
+                <Route path="/login-legacy" element={<LoginPage />} />
                 <Route path="/consortium" element={<ConsortiumPage />} />
                 {/* Retired routes — send to their new homes */}
                 <Route path="/pager" element={<Navigate to="/demo" replace />} />
