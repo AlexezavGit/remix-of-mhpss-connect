@@ -62,7 +62,7 @@ const RingTicker = () => {
   const items = useMemo(() => contextNumbers(pathname), [pathname]);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-x-5 gap-y-2 pt-2">
+    <div className="flex md:grid md:grid-cols-5 gap-x-5 gap-y-2 pt-2 overflow-x-auto md:overflow-visible no-scrollbar -mx-2 px-2 md:mx-0 md:px-0">
       {items.map((n, i) => {
         const tone = valueTone(n.value);
         const match = n.value.match(/^(.*?)([A-Za-zА-Яа-я%×→]+)?$/);
@@ -71,7 +71,7 @@ const RingTicker = () => {
         return (
           <div
             key={n.label + i}
-            className={`relative flex flex-col gap-0.5 ${i > 0 ? "md:border-l md:border-foreground/10 md:pl-5" : ""}`}
+            className={`relative flex flex-col gap-0.5 shrink-0 min-w-[150px] md:min-w-0 ${i > 0 ? "md:border-l md:border-foreground/10 md:pl-5" : ""}`}
           >
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/55 truncate">
               {n.label.split("·")[0].split("(")[0].trim()}
