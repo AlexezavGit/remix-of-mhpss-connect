@@ -130,7 +130,9 @@ const ConsortiumPage = () => {
                 className="grid grid-cols-1 md:grid-cols-[minmax(180px,1.2fr)_minmax(140px,1fr)_minmax(220px,1.6fr)_minmax(200px,1.4fr)] gap-4 px-5 py-5 border-b border-border/30 last:border-0 hover:bg-[hsl(var(--gold-bright)/0.03)] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <img src={p.logo} alt={p.name} loading="lazy" className="h-8 w-auto object-contain opacity-90" />
+                  <div className="shrink-0 h-10 w-20 bg-white rounded-md flex items-center justify-center p-1.5 border border-white/70">
+                    <img src={p.logo} alt={p.name} loading="lazy" className="max-h-full max-w-full object-contain" />
+                  </div>
                   <div className="font-display text-sm font-bold text-foreground">{p.name}</div>
                 </div>
                 <div className="font-mono text-[11px] uppercase tracking-widest text-[hsl(var(--gold-bright))]">
