@@ -72,21 +72,21 @@ const CopperRing = () => {
     >
       <div className="absolute inset-0 pointer-events-none horizon-wash bg-background/70 backdrop-blur-md border-b border-foreground/5" />
 
-      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-8 pt-1.5 pb-2 pointer-events-auto">
+      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-8 pt-2 pb-2.5 pointer-events-auto">
         {/* Row 1 — Global nav */}
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-2 group shrink-0">
             <img
               src={theme === "light" ? logoDark : logoLight}
               alt="Feel Again"
-              className="h-6 w-auto opacity-95 group-hover:opacity-100 transition-opacity"
+              className="h-7 md:h-8 w-auto opacity-95 group-hover:opacity-100 transition-opacity"
             />
-            <span className="hidden md:inline font-mono text-[9px] tracking-[0.32em] uppercase text-foreground/55">
+            <span className="hidden lg:inline font-mono text-[10px] tracking-[0.32em] uppercase text-foreground/55">
               MHPSS Infrastructure
             </span>
           </Link>
 
-          <div className="flex-1 flex items-center justify-center gap-1 sm:gap-3 min-w-0">
+          <div className="flex-1 flex items-center justify-center gap-2 sm:gap-5 min-w-0">
             {MENU.map((m) => {
               const active =
                 (m.to && m.to !== "/" && pathname.startsWith(m.to)) ||
@@ -95,15 +95,15 @@ const CopperRing = () => {
                 <button
                   key={m.id}
                   onClick={() => openMenu(m)}
-                  className={`relative font-mono uppercase tracking-[0.22em] text-[10px] sm:text-[11px] px-2 py-1
+                  className={`relative font-mono uppercase tracking-[0.22em] text-[11px] sm:text-[13px] font-semibold px-2 py-1.5
                     outline-none focus-visible:ring-1 focus-visible:ring-[hsl(var(--gold-bright))] rounded-sm whitespace-nowrap
-                    ${active ? "text-[hsl(var(--gold-bright))]" : "text-foreground/70 hover:text-[hsl(var(--gold-bright))]"} transition-colors`}
+                    ${active ? "text-[hsl(var(--gold-bright))]" : "text-foreground/80 hover:text-[hsl(var(--gold-bright))]"} transition-colors`}
                 >
                   {m.label[lang]}
                   {active && (
                     <span
                       aria-hidden
-                      className="absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-6 bg-[hsl(var(--gold-bright))] rounded-full"
+                      className="absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-7 bg-[hsl(var(--gold-bright))] rounded-full"
                     />
                   )}
                 </button>
@@ -120,7 +120,7 @@ const CopperRing = () => {
         {/* Horizon line */}
         <div
           aria-hidden
-          className="h-px w-full mt-1"
+          className="h-px w-full mt-1.5"
           style={{
             background:
               "linear-gradient(90deg, transparent 0%, hsl(var(--gold-bright) / 0.55) 12%, hsl(var(--copper-bright) / 0.75) 50%, hsl(var(--gold-bright) / 0.55) 88%, transparent 100%)",
