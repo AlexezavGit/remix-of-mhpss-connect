@@ -84,7 +84,7 @@ const ConsortiumPage = () => {
   return (
     <div className="min-h-screen">
       {/* Manifest */}
-      <section id="manifest" className="pt-40 pb-16 scroll-mt-32" style={{ background: "var(--gradient-hero)" }}>
+      <section id="manifest" className="pt-16 pb-14 scroll-mt-32">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <span className="tag-gold mb-3">Консорціум · Open coalition</span>
