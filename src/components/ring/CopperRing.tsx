@@ -28,7 +28,7 @@ interface MenuItem {
 const MENU: MenuItem[] = [
   { id: "insights",   label: { ua: "Дані та Інсайти", en: "Data & Insights" }, href: "https://dashboard.feelagain.me" },
   { id: "solutions",  label: { ua: "Рішення",          en: "Solutions" },        to: "/solutions" },
-  { id: "login",      label: { ua: "Вхід",             en: "Sign in" },          to: "/login" },
+  { id: "login",      label: { ua: "Користувачам",     en: "For users" },        to: "/users" },
   { id: "demo",       label: { ua: "Демо",             en: "Demo" },             to: "/demo" },
   { id: "consortium", label: { ua: "Консорціум",       en: "Consortium" },       to: "/consortium" },
 ];
