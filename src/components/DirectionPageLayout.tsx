@@ -15,11 +15,8 @@ type Props = {
 const DirectionPageLayout = ({ tag, title, lead, children }: Props) => {
   const { t } = useT();
   return (
-    <div className="min-h-screen bg-background pt-32">
-      <section
-        className="pt-28 pb-12 relative overflow-hidden"
-        style={{ background: "var(--gradient-hero)" }}
-      >
+    <div className="min-h-screen">
+      <section className="pt-16 pb-12 relative overflow-hidden">
         <div className="section-container relative z-10">
           <Link to="/" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
             ← {t("nav.directions")}
