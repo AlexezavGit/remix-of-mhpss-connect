@@ -10,6 +10,10 @@ import SustainabilityPage from "./pages/SustainabilityPage";
 import SolutionsPage from "./pages/SolutionsPage";
 import DemoPage from "./pages/DemoPage";
 import LoginPage from "./pages/LoginPage";
+import UsersPage from "./pages/UsersPage";
+import BeneficiaryPage from "./pages/users/BeneficiaryPage";
+import ProviderPage from "./pages/users/ProviderPage";
+import DonorPage from "./pages/users/DonorPage";
 import ConsortiumPage from "./pages/ConsortiumPage";
 import NotFound from "./pages/NotFound";
 import { I18nProvider } from "./i18n";
@@ -42,7 +46,13 @@ const App = () => (
                 <Route path="/finance" element={<FinancePage />} />
                 <Route path="/sustainability" element={<SustainabilityPage />} />
                 <Route path="/demo" element={<DemoPage />} />
-                <Route path="/login" element={<LoginPage />} />
+                <Route path="/users" element={<UsersPage />} />
+                <Route path="/users/beneficiary" element={<BeneficiaryPage />} />
+                <Route path="/users/provider" element={<ProviderPage />} />
+                <Route path="/users/donor" element={<DonorPage />} />
+                {/* Legacy /login → /users */}
+                <Route path="/login" element={<Navigate to="/users" replace />} />
+                <Route path="/login-legacy" element={<LoginPage />} />
                 <Route path="/consortium" element={<ConsortiumPage />} />
                 {/* Retired routes — send to their new homes */}
                 <Route path="/pager" element={<Navigate to="/demo" replace />} />

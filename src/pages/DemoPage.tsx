@@ -2,16 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "@/hooks/use-toast";
-import GoldenScenario from "@/components/GoldenScenario";
-import ScoringMatrix from "@/components/ScoringMatrix";
 import SiteFooter from "@/components/SiteFooter";
 import { usePageSections } from "@/context/PageNavContext";
-
-const audiences = [
-  { tag: "tag-fintech", audience: "Банкіри та держава", title: "Payment Infrastructure", desc: "Платіжна інфраструктура для MHPSS: масштаб, регуляторна пісочниця, ROI." },
-  { tag: "tag-digital", audience: "Гуманітарники та донори", title: "Digital Accountability", desc: "Digital tracking транзакцій + narrative autoreporting донору в реальному часі." },
-  { tag: "tag-clinical", audience: "Клініцисти та практики", title: "Digital Practice", desc: "CRM, звітність, потік клієнтів і вихід з тіні через дегресивну ставку 7→3%." },
-];
 
 const faqs = [
   { q: "Скільки коштує державі?", a: "Нуль. Програма фінансується через дегресивну комісію 7→3% з обороту, який проходить через рейки." },
@@ -24,8 +16,6 @@ const DemoPage = () => {
   usePageSections([
     { id: "request", label: "Запит демо" },
     { id: "see", label: "Що ви побачите" },
-    { id: "scenario", label: "Golden Scenario" },
-    { id: "scoring", label: "Scoring Matrix" },
     { id: "faq", label: "FAQ" },
   ]);
 
@@ -54,8 +44,7 @@ const DemoPage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero + form (Bloomberg contact-menu style) */}
-      <section id="request" className="pt-40 pb-16" style={{ background: "var(--gradient-hero)" }}>
+      <section id="request" className="pt-16 pb-14">
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -67,7 +56,7 @@ const DemoPage = () => {
                 Живий обхід платформи для банкірів, донорів і клініцистів. 30 хвилин, під ваш use-case,
                 з реальними даними з MHPSS-сектору України.
               </p>
-              <div id="see" className="space-y-4 scroll-mt-32">
+              <div id="see" className="space-y-3 scroll-mt-32">
                 <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/55">Що ви побачите</div>
                 {[
                   { n: "01", t: "Payment rails у дії", d: "Escrow, Triple Verification Oracle, дегресивна ставка на живих транзакціях." },
@@ -91,7 +80,7 @@ const DemoPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="card-elevated p-6 md:p-8 h-fit sticky top-56"
+              className="card-elevated p-6 md:p-8 h-fit lg:sticky lg:top-56"
             >
               <div className="grid grid-cols-2 gap-3">
                 {[
@@ -151,45 +140,13 @@ const DemoPage = () => {
                 Request demo →
               </button>
               <p className="mt-3 text-[10px] text-muted-foreground text-center">
-                Вже маєте доступ? <Link to="/login" className="text-[hsl(var(--gold-bright))] hover:underline">Увійти</Link>
+                Вже маєте доступ? <Link to="/users" className="text-[hsl(var(--gold-bright))] hover:underline">Кабінети користувачів →</Link>
               </p>
             </motion.form>
           </div>
         </div>
       </section>
 
-      {/* Three audiences */}
-      <section className="py-14 bg-transparent">
-        <div className="section-container">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Три аудиторії — одна інфраструктура</h2>
-          <div className="grid md:grid-cols-3 gap-5">
-            {audiences.map((d, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="card-elevated p-6"
-              >
-                <span className={d.tag}>{d.audience}</span>
-                <h3 className="font-display text-base font-semibold text-foreground mt-3 mb-2">{d.title}</h3>
-                <p className="text-sm text-secondary-foreground">{d.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="scenario" className="scroll-mt-32">
-        <GoldenScenario />
-      </section>
-
-      <section id="scoring" className="scroll-mt-32">
-        <ScoringMatrix />
-      </section>
-
-      {/* FAQ */}
       <section id="faq" className="py-16 bg-transparent scroll-mt-32">
         <div className="section-container max-w-3xl">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">Часті питання</h2>

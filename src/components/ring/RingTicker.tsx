@@ -18,7 +18,7 @@ function contextNumbers(pathname: string): FeedItem[] {
   if (pathname.startsWith("/sustainability")) {
     return pick(["Приватна практика (агрегована)", "Приватна практика (статист", "% завершення", "Повернення до ефективної", "Спроможність"]);
   }
-  if (pathname.startsWith("/demo") || pathname.startsWith("/login") || pathname.startsWith("/consortium")) {
+  if (pathname.startsWith("/demo") || pathname.startsWith("/login") || pathname.startsWith("/users") || pathname.startsWith("/consortium")) {
     return pick(["Українців з потребою", "Спроможність", "Прогноз. вплив на ВВП", "ROI програми", "Gap"]);
   }
   return pick(["Українців з потребою", "Спроможність", "Прогноз. вплив на ВВП", "ROI програми", "Gap"]);
@@ -62,22 +62,21 @@ const RingTicker = () => {
   const items = useMemo(() => contextNumbers(pathname), [pathname]);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-2 pt-1.5">
+    <div className="flex md:grid md:grid-cols-5 gap-x-5 gap-y-2 pt-2 overflow-x-auto md:overflow-visible no-scrollbar -mx-2 px-2 md:mx-0 md:px-0">
       {items.map((n, i) => {
         const tone = valueTone(n.value);
-        // Extract number and suffix (e.g. "3.9M" -> "3.9" + "M", "$8B" -> "$8" + "B")
         const match = n.value.match(/^(.*?)([A-Za-zА-Яа-я%×→]+)?$/);
         const main = match?.[1]?.trim() || n.value;
         const suffix = match?.[2] || "";
         return (
           <div
             key={n.label + i}
-            className={`relative flex flex-col gap-0.5 ${i > 0 ? "md:border-l md:border-foreground/10 md:pl-4" : ""}`}
+            className={`relative flex flex-col gap-0.5 shrink-0 min-w-[150px] md:min-w-0 ${i > 0 ? "md:border-l md:border-foreground/10 md:pl-5" : ""}`}
           >
-            <div className="font-mono text-[8.5px] tracking-[0.22em] uppercase text-foreground/50 truncate">
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/55 truncate">
               {n.label.split("·")[0].split("(")[0].trim()}
             </div>
-            <div className="flex items-baseline gap-1.5">
+            <div className="flex items-baseline gap-2">
               <MiniBars
                 seed={n.label}
                 trend={n.delta}
@@ -88,15 +87,15 @@ const RingTicker = () => {
                       ? "hsl(var(--sky, 200 90% 60%))"
                       : "hsl(var(--gold-bright))"
                 }
-                height={11}
+                height={14}
               />
-              <span className={`font-display font-bold text-[18px] leading-none ${tone}`}>
+              <span className={`font-display font-bold text-[22px] leading-none ${tone}`}>
                 {main}
-                {suffix && <span className="text-[11px] font-semibold ml-0.5">{suffix}</span>}
+                {suffix && <span className="text-[13px] font-semibold ml-0.5">{suffix}</span>}
               </span>
               <Arrow delta={n.delta} polarity={n.polarity} />
             </div>
-            <div className="font-mono text-[8.5px] text-foreground/45 truncate">
+            <div className="font-mono text-[10px] text-foreground/50 truncate">
               {n.hint || ""}
               {n.source ? ` · ${n.source}` : ""}
             </div>

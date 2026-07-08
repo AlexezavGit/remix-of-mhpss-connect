@@ -38,11 +38,6 @@ const stages = [
   },
 ];
 
-const goldenGaps = [
-  { label: "Технічний", text: "Потрібен стабільний API з ЄСОЗ (часто перевантажений)." },
-  { label: "Юридичний", text: "Легалізація split-платежів для бюджетних коштів (потребує sandbox КМУ)." },
-  { label: "Колізія НСЗУ", text: "Софінансування послуг що вже покриті НСЗУ може трактуватись як порушення «безоплатності». Рішення: позиціонування як додаткові немедичні послуги." },
-];
 
 const colorMap: Record<string, { dot: string; bg: string }> = {
   primary: { dot: "bg-primary", bg: "bg-primary/5 border-primary/20" },
@@ -114,23 +109,6 @@ const GoldenScenario = () => {
           </div>
         </div>
 
-        {/* Gaps */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12"
-        >
-          <h3 className="font-display text-lg font-semibold text-foreground mb-4">Гепи Golden Scenario</h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            {goldenGaps.map((g, i) => (
-              <div key={i} className="card-elevated p-5">
-                <span className="tag-regulatory mb-2">{g.label}</span>
-                <p className="text-sm text-secondary-foreground mt-2 leading-relaxed">{g.text}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -154,7 +154,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-color: hsl(var(--navy-deep));
-    padding-top: clamp(112px, 14vh, 132px); /* clear fixed HorizonRail on top */
+    padding-top: clamp(132px, 16vh, 176px); /* clear taller 3-row ring on top */
   }
 
   h1, h2, h3, h4 {
