@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import HowItWorks from "@/components/HowItWorks";
 import ThreeDirections from "@/components/ThreeDirections";
@@ -22,20 +21,40 @@ const SolutionsPage = () => {
 
   return (
     <div className="min-h-screen">
-      <section id="overview" className="pt-40 pb-16" style={{ background: "var(--gradient-hero)" }}>
+      <section id="overview" className="pt-16 pb-14">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-            <span className="tag-fintech mb-3">Рішення</span>
-            <h1 className="text-4xl md:text-6xl font-display font-bold mt-4 mb-4 tracking-tight cyan-gradient-text">
+            <span className="tag-fintech mb-3">Executive summary · Рішення</span>
+            <h1 className="text-4xl md:text-6xl font-display font-bold mt-4 mb-5 tracking-tight cyan-gradient-text">
               Інфраструктура MHPSS-сектору
             </h1>
-            <p className="text-lg text-secondary-foreground max-w-2xl">
-              Три напрями — одна цифрова шина. Digital tracking, Payment Infrastructure та
-              Sustainable Sector, що складаються в один шлях бенефіціара → клієнта → пацієнта.
-            </p>
-            <div className="flex gap-3 mt-6">
-              <Link to="/demo" className="tag-fintech hover:bg-primary/20 transition-colors">Замовити демо →</Link>
-              <Link to="/consortium" className="tag-gold hover:bg-[hsl(var(--gold)/0.2)] transition-colors">Долучитися до консорціуму</Link>
+
+            <div className="space-y-4 max-w-2xl text-secondary-foreground leading-relaxed">
+              <p className="text-lg">
+                <span className="font-semibold text-foreground">Постановка проблеми.</span>{" "}
+                3.9 млн українців потребують спеціалізованої MHPSS-допомоги; сектор фрагментований на
+                державний, гуманітарний та приватний контури без спільного цифрового шару, а
+                &lt;1.5% глобальних гуманітарних бюджетів локалізується на рівень надавача.
+              </p>
+              <p>
+                <span className="font-semibold text-foreground">Головний висновок.</span>{" "}
+                Розрив закриває не ще одна платформа, а нейтральна утиліта — цифрова шина плюс
+                платіжні рейки з ескроу за результатом. Це переводить сектор з режиму
+                <em> процесних грантів </em> у режим <em> outcome-linked capital </em>, знижуючи
+                вартість капіталу для донора і час виходу для надавача.
+              </p>
+              <p>
+                <span className="font-semibold text-foreground">Що ми пропонуємо.</span>{" "}
+                Три напрями, які працюють як один продукт: <em>Digital tracking</em> (спільний
+                датасет, деперсоніфікований реєстр), <em>Payment infrastructure</em> (escrow, Triple
+                Verification Oracle, дегресивна ставка 7→3%) і <em>Sustainable sector</em>
+                {" "}(пайплайн 50–60К фахівців, ринок 2.5–4.5 млрд $).
+              </p>
+              <p>
+                <span className="font-semibold text-foreground">Очікуваний ефект.</span>{" "}
+                Локалізація &gt;25% з першого дня, ROI програми 1→4.5× за 5 років, замикання цифрового
+                кола підзвітності від донора до ВВП.
+              </p>
             </div>
           </motion.div>
         </div>
