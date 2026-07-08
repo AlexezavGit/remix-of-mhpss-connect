@@ -38,11 +38,6 @@ const stages = [
   },
 ];
 
-const goldenGaps = [
-  { label: "Технічний", text: "Потрібен стабільний API з ЄСОЗ (часто перевантажений)." },
-  { label: "Юридичний", text: "Легалізація split-платежів для бюджетних коштів (потребує sandbox КМУ)." },
-  { label: "Колізія НСЗУ", text: "Софінансування послуг що вже покриті НСЗУ може трактуватись як порушення «безоплатності». Рішення: позиціонування як додаткові немедичні послуги." },
-];
 
 const colorMap: Record<string, { dot: string; bg: string }> = {
   primary: { dot: "bg-primary", bg: "bg-primary/5 border-primary/20" },
