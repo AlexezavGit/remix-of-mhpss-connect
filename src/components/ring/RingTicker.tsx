@@ -18,7 +18,7 @@ function contextNumbers(pathname: string): FeedItem[] {
   if (pathname.startsWith("/sustainability")) {
     return pick(["Приватна практика (агрегована)", "Приватна практика (статист", "% завершення", "Повернення до ефективної", "Спроможність"]);
   }
-  if (pathname.startsWith("/demo") || pathname.startsWith("/login") || pathname.startsWith("/consortium")) {
+  if (pathname.startsWith("/demo") || pathname.startsWith("/login") || pathname.startsWith("/users") || pathname.startsWith("/consortium")) {
     return pick(["Українців з потребою", "Спроможність", "Прогноз. вплив на ВВП", "ROI програми", "Gap"]);
   }
   return pick(["Українців з потребою", "Спроможність", "Прогноз. вплив на ВВП", "ROI програми", "Gap"]);
