@@ -101,6 +101,10 @@ function scanFile(file) {
     if (CYRILLIC.test(text)) continue;
     if (!/[A-Za-z]/.test(text)) continue;
     if (/^https?:/i.test(text)) continue;
+    // Skip Tailwind/CSS-like tokens.
+    if (/\b(text|bg|border|from|to|via|ring|shadow|font|rounded|hover|focus|group|tag)-[a-z0-9[]/.test(text)) continue;
+    if (/\b(hsl|rgb|var|calc|linear-gradient|radial-gradient|translate|rotate|scale)\s*\(/.test(text)) continue;
+    if (/^[a-z]+(?:-[a-z0-9]+)+$/.test(text)) continue; // kebab tokens
     const words = text.match(LATIN_WORD) || [];
     if (words.length === 0) continue;
     const offending = words.filter((w) => !ALLOW.has(w.toLowerCase()));
