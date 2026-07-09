@@ -58,7 +58,7 @@ const DigitalPage = () => (
             className="card-elevated p-5 border border-accent/30 hover:border-accent transition-colors"
           >
             <div className="text-xs uppercase tracking-widest text-accent font-mono mb-2">Інтерфейс</div>
-            <div className="font-display text-base font-bold text-foreground">Beneficiary journey →</div>
+            <div className="font-display text-base font-bold text-foreground">Шлях бенефіціара →</div>
             <p className="text-xs text-secondary-foreground mt-1">
               Інтерфейс бенефіціара — окрема сторінка (плейсхолдер).
             </p>
