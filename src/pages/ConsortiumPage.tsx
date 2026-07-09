@@ -87,7 +87,7 @@ const ConsortiumPage = () => {
       <section id="manifest" className="pt-16 pb-14 scroll-mt-32">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-            <span className="tag-gold mb-3">Консорціум · Open coalition</span>
+            <span className="tag-gold mb-3">Консорціум · Відкрита коаліція</span>
             <h1 className="text-4xl md:text-6xl font-display font-bold mt-4 mb-5 tracking-tight text-foreground">
               {t("cons.what.title") || "Що стоїть за Feel Again"}
             </h1>
@@ -175,7 +175,7 @@ const ConsortiumPage = () => {
         <div className="section-container text-center">
           <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[hsl(var(--gold)/0.35)] bg-[hsl(var(--gold)/0.08)] mb-6">
             <span className="w-2 h-2 rounded-full bg-[hsl(var(--gold-bright))] animate-pulse" />
-            <span className="text-sm text-[hsl(var(--gold-bright))] font-medium">Open coalition · rolling applications</span>
+            <span className="text-sm text-[hsl(var(--gold-bright))] font-medium">Відкрита коаліція · заявки на постійній основі</span>
           </div>
           <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
             Долучитися до консорціуму

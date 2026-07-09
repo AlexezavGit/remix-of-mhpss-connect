@@ -8,7 +8,7 @@ import { usePageSections } from "@/context/PageNavContext";
 const faqs = [
   { q: "Скільки коштує державі?", a: "Нуль. Програма фінансується через дегресивну комісію 7→3% з обороту, який проходить через рейки." },
   { q: "Хто вже підписаний?", a: "НБУ Regulatory Sandbox, 38 банків через Хартію інклюзії, консорціум USC Viterbi · Clalit · KNU · Open Society · Enkidu · Quoroom." },
-  { q: "Який timeline?", a: "Pilot Q2 2026 у пісочниці НБУ · ~200K співробітників банків. Рік 3 — ціль 50-60K практикуючих спеціалістів." },
+  { q: "Які терміни?", a: "Пілот Q2 2026 у пісочниці НБУ · ~200 тис. співробітників банків. Рік 3 — ціль 50–60 тис. практикуючих фахівців." },
   { q: "Що я побачу на демо?", a: "Живий Scoring Matrix на реальних анонімізованих даних, Golden Scenario, і як ваша роль вписується у три-квадрантну модель." },
 ];
 
@@ -24,8 +24,8 @@ const DemoPage = () => {
     email: "",
     org: "",
     role: "",
-    country: "Ukraine",
-    interest: "Payment Infrastructure",
+    country: "Україна",
+    interest: "Платіжна інфраструктура",
     notes: "",
     consent: false,
   });
@@ -48,20 +48,20 @@ const DemoPage = () => {
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              <span className="tag-fintech mb-3">Демо · Request access</span>
+              <span className="tag-fintech mb-3">Демо · Запит доступу</span>
               <h1 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-4 tracking-tight text-foreground">
-                Request a Feel Again demo
+                Запросити демо Feel Again
               </h1>
               <p className="text-base text-secondary-foreground mb-8 max-w-lg">
-                Живий обхід платформи для банкірів, донорів і клініцистів. 30 хвилин, під ваш use-case,
-                з реальними даними з MHPSS-сектору України.
+                Живий обхід платформи для банкірів, донорів і клініцистів. 30 хвилин, під ваш сценарій,
+                з реальними даними MHPSS-сектору України.
               </p>
               <div id="see" className="space-y-3 scroll-mt-32">
                 <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/55">Що ви побачите</div>
                 {[
-                  { n: "01", t: "Payment rails у дії", d: "Escrow, Triple Verification Oracle, дегресивна ставка на живих транзакціях." },
+                  { n: "01", t: "Платіжні рейки у дії", d: "Ескроу, потрійна верифікація, дегресивна ставка на живих транзакціях." },
                   { n: "02", t: "Scoring Matrix", d: "40% процес · 45% клінічне покращення · 15% повернення до функціонування." },
-                  { n: "03", t: "Reverse Waterfall", d: "Від громади до глобального донора — з прозорістю на кожному рівні." },
+                  { n: "03", t: "Зворотний водоспад", d: "Від громади до глобального донора — з прозорістю на кожному рівні." },
                   { n: "04", t: "Ваша роль", d: "Як конкретна організація вписується у три-квадрантну модель." },
                 ].map((x) => (
                   <div key={x.n} className="flex gap-3 p-3 rounded-lg border border-border/60 bg-card/40">
@@ -84,11 +84,11 @@ const DemoPage = () => {
             >
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { k: "name", label: "Full name*", type: "text" },
-                  { k: "email", label: "Work email*", type: "email" },
-                  { k: "org", label: "Organization*", type: "text" },
-                  { k: "role", label: "Role", type: "text" },
-                  { k: "country", label: "Country", type: "text" },
+                  { k: "name", label: "Імʼя та прізвище*", type: "text" },
+                  { k: "email", label: "Робоча пошта*", type: "email" },
+                  { k: "org", label: "Організація*", type: "text" },
+                  { k: "role", label: "Посада", type: "text" },
+                  { k: "country", label: "Країна", type: "text" },
                 ].map((f) => (
                   <label key={f.k} className={`text-xs text-muted-foreground ${f.k === "email" || f.k === "name" ? "col-span-2" : ""}`}>
                     <span className="font-mono uppercase tracking-widest text-[9px]">{f.label}</span>
@@ -102,20 +102,20 @@ const DemoPage = () => {
                   </label>
                 ))}
                 <label className="col-span-2 text-xs text-muted-foreground">
-                  <span className="font-mono uppercase tracking-widest text-[9px]">Interest</span>
+                  <span className="font-mono uppercase tracking-widest text-[9px]">Інтерес</span>
                   <select
                     value={form.interest}
                     onChange={(e) => setForm({ ...form, interest: e.target.value })}
                     className="mt-1 w-full h-9 px-3 rounded-md bg-background border border-border text-sm text-foreground focus:outline-none focus:border-[hsl(var(--gold-bright))]"
                   >
-                    <option>Payment Infrastructure</option>
-                    <option>Digital Accountability</option>
-                    <option>Digital Practice</option>
-                    <option>Consortium partnership</option>
+                    <option>Платіжна інфраструктура</option>
+                    <option>Цифрова підзвітність</option>
+                    <option>Цифрова практика</option>
+                    <option>Партнерство у консорціумі</option>
                   </select>
                 </label>
                 <label className="col-span-2 text-xs text-muted-foreground">
-                  <span className="font-mono uppercase tracking-widest text-[9px]">Notes</span>
+                  <span className="font-mono uppercase tracking-widest text-[9px]">Коментар</span>
                   <textarea
                     value={form.notes}
                     onChange={(e) => setForm({ ...form, notes: e.target.value })}
@@ -137,7 +137,7 @@ const DemoPage = () => {
                 type="submit"
                 className="mt-5 w-full h-11 rounded-md bg-[hsl(var(--gold-bright))] text-background font-mono uppercase tracking-[0.22em] text-xs font-bold hover:opacity-90 transition-opacity"
               >
-                Request demo →
+                Надіслати запит →
               </button>
               <p className="mt-3 text-[10px] text-muted-foreground text-center">
                 Вже маєте доступ? <Link to="/users" className="text-[hsl(var(--gold-bright))] hover:underline">Кабінети користувачів →</Link>

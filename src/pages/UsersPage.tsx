@@ -27,7 +27,7 @@ const UsersPage = () => {
       <section id="intro" className="pt-16 pb-10 scroll-mt-32">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-            <span className="tag-gold mb-3">Користувачам · Users</span>
+            <span className="tag-gold mb-3">Користувачам</span>
             <h1 className="text-4xl md:text-6xl font-display font-bold mt-4 mb-5 tracking-tight text-foreground">
               Швидкий вхід до кабінетів
             </h1>
