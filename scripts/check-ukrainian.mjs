@@ -27,19 +27,19 @@ const VISIBLE_KEYS = new Set([
 const ALLOW = new Set(
   [
     "feel","again","fa","mhpss","bloomberg","google","supabase","lovable","github",
-    "usaid","ebrd","nbu","moz","who","un","eu","us","npa","esoz",
+    "usaid","ebrd","nbu","moz","who","un","eu","us","npa","esoz","unicef","monobank",
     "enkidu","clalit","geha","knu","quoroom","viterbi","usc","metinvest","bravemind",
-    "mckinsey","apple","openai","b17","helppoint","psychat",
-    "me","com","org","net","io","www","https","http","html","css","js","ts","tsx","md","svg","png","jpg",
-    "feelagain","dashboard","gazelles","flow","app","site",
-    "id","ai","ui","ux","cbt","emdr","vr","ar","xr","phq","gad","pcl","fhir","iso","kpi","kpis",
-    "esg","csr","roi","gps","crm","vc","vcs","w3c","did","daly","dalys","gdp","jwt","rls","api",
-    "sdk","sms","pin","otp","ok","pdf","csv","json","xml","utc","gmt","ci","cd","qa",
-    "prom","proms","hdp","ifi","ifis","nexus","hipaa","gdpr","fda","ema","emr","emrs","ehr","ehrs",
-    "camt","pain","iban","swift","sepa","escrow","ledger","stack","token","tokens","waterfall",
-    "demo","email","tag","tags","hub","map","matrix","case","cases","scoring","fintech","clinical","digital",
-    "start","stop","on","off","in","out","up","a","an","the","of","to","by","is","or","and","for","with","from","as","at","be",
-    "en","uk","ua","ru",
+    "mckinsey","apple","openai","b17","helppoint","psychat","upra","iom","msf","care","caritas","ocha","acted","gff","nhs","iapt","dhis2","kobo","activityinfo","softserve","epam","dtek","monobank","tom","fletcher","skip","rizzo","polygon","zkevm","loinc","upra",
+    "me","com","org","net","io","www","https","http","html","css","js","ts","tsx","md","svg","png","jpg","json","xml","yaml","toml","ini",
+    "feelagain","dashboard","gazelles","flow","app","site","charter",
+    "id","ai","ui","ux","cbt","emdr","vr","ar","xr","phq","gad","pcl","fhir","iso","kpi","kpis","das","hl7","ict","mhc","hdp","nexus","who-das","emr","emrs","ehr","ehrs","ehealth","mrn","did","dib","dibs","sib","sibs","daly","dalys","gdp","jwt","rls","api",
+    "sdk","sms","pin","otp","ok","pdf","csv","utc","gmt","ci","cd","qa","spv","ptsd","depression","therapy","therapies","improving","access","psychological",
+    "prom","proms","hdp","ifi","ifis","hipaa","gdpr","fda","ema","emr",
+    "camt","pain","iban","swift","sepa","escrow","ledger","stack","token","tokens","waterfall","oracle","dashboards","matrix","faq","terminal",
+    "demo","email","tag","tags","hub","map","case","cases","scoring","fintech","clinical","digital","blended","finance","franchise","lite","recovery","rate","reverse","skin","game","regulatory","sandbox","proof","mechanics","required","canonical","donor","donors","proposal","policy","brief","logframe","opex","capex","saas","mvp","first","regional","military","national","export","sync","charter","overhead","fee","budgets","existing","replacing","paid","placement","stepped","care","paypal",
+    "workforce","gap","prevalence","integration","accountability","economic","shadow","economy","embassy","theory","change","page","not","found","oops","impact","feasibility","practice","journey","beneficiary","payment","infrastructure","system","status","operational","uptime","region","central","north","version","build","today","need","coverage","name","role","country","license","amount","focus","scope","patient","pseudo","smart","contracts","measurereport","triple","verification","embassy","goal","goals","input","output","outcome","activity",
+    "start","stop","on","off","in","out","up","a","an","the","of","to","by","is","or","and","for","with","from","as","at","be","not","no",
+    "en","uk","ua","ru","anon","prov","real","time",
   ].map((s) => s.toLowerCase())
 );
 
