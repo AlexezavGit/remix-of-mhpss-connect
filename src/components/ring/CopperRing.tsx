@@ -8,6 +8,7 @@ import logoLight from "@/assets/logos/feel-again-light.svg";
 import logoDark from "@/assets/logos/feel-again-dark.svg";
 import PageNav from "./PageNav";
 import RingTicker from "./RingTicker";
+import TickScale from "./TickScale";
 
 /**
  * CopperRing — three-row navigation rail.
@@ -72,21 +73,21 @@ const CopperRing = () => {
     >
       <div className="absolute inset-0 pointer-events-none horizon-wash bg-background/70 backdrop-blur-md border-b border-foreground/5" />
 
-      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-8 pt-2 pb-2.5 pointer-events-auto">
-        {/* Row 1 — Global nav */}
-        <div className="flex items-center justify-between gap-4">
+      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-8 pt-1.5 pb-1.5 pointer-events-auto">
+        {/* Row 1 — Global nav (unified height ~34px, unified font-mono 11px) */}
+        <div className="flex items-center justify-between gap-4 h-[34px]">
           <Link to="/" className="flex items-center gap-2 group shrink-0">
             <img
               src={theme === "light" ? logoDark : logoLight}
               alt="Feel Again"
-              className="h-7 md:h-8 w-auto opacity-95 group-hover:opacity-100 transition-opacity"
+              className="h-6 md:h-7 w-auto opacity-95 group-hover:opacity-100 transition-opacity"
             />
-            <span className="hidden lg:inline font-mono text-[10px] tracking-[0.32em] uppercase text-foreground/55">
-              MHPSS Infrastructure
+            <span className="hidden lg:inline font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/55">
+              MHPSS · Інфраструктура
             </span>
           </Link>
 
-          <div className="flex-1 flex items-center justify-center gap-2 sm:gap-5 min-w-0">
+          <div className="flex-1 flex items-center justify-center gap-2 sm:gap-4 min-w-0">
             {MENU.map((m) => {
               const active =
                 (m.to && m.to !== "/" && pathname.startsWith(m.to)) ||
@@ -95,7 +96,7 @@ const CopperRing = () => {
                 <button
                   key={m.id}
                   onClick={() => openMenu(m)}
-                  className={`relative font-mono uppercase tracking-[0.22em] text-[11px] sm:text-[13px] font-semibold px-2 py-1.5
+                  className={`relative font-mono uppercase tracking-[0.22em] text-[11px] font-semibold px-2 py-1
                     outline-none focus-visible:ring-1 focus-visible:ring-[hsl(var(--gold-bright))] rounded-sm whitespace-nowrap
                     ${active ? "text-[hsl(var(--gold-bright))]" : "text-foreground/80 hover:text-[hsl(var(--gold-bright))]"} transition-colors`}
                 >
@@ -117,22 +118,22 @@ const CopperRing = () => {
           </div>
         </div>
 
-        {/* Horizon line */}
-        <div
-          aria-hidden
-          className="h-px w-full mt-1.5"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, hsl(var(--gold-bright) / 0.55) 12%, hsl(var(--copper-bright) / 0.75) 50%, hsl(var(--gold-bright) / 0.55) 88%, transparent 100%)",
-            boxShadow: "0 0 12px hsl(var(--gold-bright) / 0.25)",
-          }}
-        />
+        {/* Notched ruler — unified separator */}
+        <TickScale className="mt-0.5" />
 
-        {/* Row 2 — Local page nav */}
-        <PageNav />
+        {/* Row 2 — Local page nav (unified height ~30px, same font) */}
+        <div className="min-h-[30px] flex items-center">
+          <PageNav />
+        </div>
 
-        {/* Row 3 — Ticker */}
-        <RingTicker />
+        <TickScale className="opacity-70" />
+
+        {/* Row 3 — Ticker (unified font-mono, scaled values) */}
+        <div className="min-h-[34px]">
+          <RingTicker />
+        </div>
+
+        <TickScale className="opacity-60" />
       </div>
     </motion.nav>
   );

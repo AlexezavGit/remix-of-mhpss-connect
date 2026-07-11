@@ -62,7 +62,7 @@ const RingTicker = () => {
   const items = useMemo(() => contextNumbers(pathname), [pathname]);
 
   return (
-    <div className="flex md:grid md:grid-cols-5 gap-x-5 gap-y-2 pt-2 overflow-x-auto md:overflow-visible no-scrollbar -mx-2 px-2 md:mx-0 md:px-0">
+    <div className="flex md:grid md:grid-cols-5 gap-x-4 items-center overflow-x-auto md:overflow-visible no-scrollbar -mx-2 px-2 md:mx-0 md:px-0 w-full">
       {items.map((n, i) => {
         const tone = valueTone(n.value);
         const match = n.value.match(/^(.*?)([A-Za-zА-Яа-я%×→]+)?$/);
@@ -71,34 +71,28 @@ const RingTicker = () => {
         return (
           <div
             key={n.label + i}
-            className={`relative flex flex-col gap-0.5 shrink-0 min-w-[150px] md:min-w-0 ${i > 0 ? "md:border-l md:border-foreground/10 md:pl-5" : ""}`}
+            className={`relative flex items-center gap-2 shrink-0 min-w-[170px] md:min-w-0 ${i > 0 ? "md:border-l md:border-foreground/10 md:pl-4" : ""}`}
           >
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/55 truncate">
+            <MiniBars
+              seed={n.label}
+              trend={n.delta}
+              color={
+                n.polarity === "bad"
+                  ? "hsl(var(--coral))"
+                  : n.polarity === "good"
+                    ? "hsl(var(--sky, 200 90% 60%))"
+                    : "hsl(var(--gold-bright))"
+              }
+              height={12}
+            />
+            <span className={`font-mono font-bold text-[14px] leading-none ${tone}`}>
+              {main}
+              {suffix && <span className="text-[11px] font-semibold ml-0.5">{suffix}</span>}
+            </span>
+            <Arrow delta={n.delta} polarity={n.polarity} />
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/55 truncate">
               {n.label.split("·")[0].split("(")[0].trim()}
-            </div>
-            <div className="flex items-baseline gap-2">
-              <MiniBars
-                seed={n.label}
-                trend={n.delta}
-                color={
-                  n.polarity === "bad"
-                    ? "hsl(var(--coral))"
-                    : n.polarity === "good"
-                      ? "hsl(var(--sky, 200 90% 60%))"
-                      : "hsl(var(--gold-bright))"
-                }
-                height={14}
-              />
-              <span className={`font-display font-bold text-[22px] leading-none ${tone}`}>
-                {main}
-                {suffix && <span className="text-[13px] font-semibold ml-0.5">{suffix}</span>}
-              </span>
-              <Arrow delta={n.delta} polarity={n.polarity} />
-            </div>
-            <div className="font-mono text-[10px] text-foreground/50 truncate">
-              {n.hint || ""}
-              {n.source ? ` · ${n.source}` : ""}
-            </div>
+            </span>
           </div>
         );
       })}

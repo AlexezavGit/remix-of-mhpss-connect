@@ -240,17 +240,17 @@ const RingHub = () => {
               </text>
 
               {/* Integration ports on outer rim */}
-              {INTEGRATION_PORTS.map((p, i) => {
-                const deg = 30 + i * 90;
-                const lp = labelPos(deg, rOuter + 14);
-                const tp = labelPos(deg, rOuter + 28);
+              {INTEGRATION_PORTS.map((p) => {
+                const lp = labelPos(p.deg, rOuter + 14);
+                const tp = labelPos(p.deg, rOuter + 28);
+                const highlight = p.id === "fintech";
                 return (
                   <g key={p.id}>
                     <circle
                       cx={lp.x}
                       cy={lp.y}
-                      r="5"
-                      fill="hsl(var(--copper-bright))"
+                      r={highlight ? 6.5 : 5}
+                      fill={highlight ? "hsl(var(--gold-bright))" : "hsl(var(--copper-bright))"}
                       stroke="hsl(var(--background))"
                       strokeWidth="1.5"
                     >
@@ -260,8 +260,9 @@ const RingHub = () => {
                       x={tp.x}
                       y={tp.y}
                       textAnchor="middle"
-                      fontSize="8"
-                      fill="hsl(var(--muted-foreground))"
+                      fontSize={highlight ? 10 : 8}
+                      fontWeight={highlight ? 700 : 400}
+                      fill={highlight ? "hsl(var(--gold-bright))" : "hsl(var(--muted-foreground))"}
                       className="font-mono uppercase tracking-wider"
                     >
                       {p.label}
