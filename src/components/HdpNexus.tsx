@@ -29,7 +29,7 @@ const HdpNexus = () => {
         <div className="card-elevated p-6 md:p-10">
           <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
             <div className="relative">
-              <svg viewBox="0 0 600 500" className="w-full h-auto" role="img" aria-label="HDP Nexus diagram">
+              <svg viewBox="0 0 600 500" className="w-full h-auto" role="img" aria-label="Схема HDP Nexus — точка конвергенції">
                 {/* soft grid */}
                 <defs>
                   <radialGradient id="nx-glow" cx="50%" cy="50%" r="50%">

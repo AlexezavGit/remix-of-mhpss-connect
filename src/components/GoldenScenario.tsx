@@ -56,9 +56,9 @@ const GoldenScenario = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="tag-fintech mb-4">Addendum: Розділ 17</span>
+          <span className="tag-fintech mb-4">Додаток · Розділ 17</span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
-            Golden Scenario: <span className="gold-gradient-text">Beneficiary Journey</span>
+            Золотий сценарій: <span className="gold-gradient-text">шлях бенефіціара</span>
           </h2>
           <p className="text-secondary-foreground max-w-3xl text-lg">
             Повний цикл від першого кліку до економічного ефекту. 

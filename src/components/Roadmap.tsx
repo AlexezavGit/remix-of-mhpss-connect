@@ -16,36 +16,36 @@ interface Phase {
 const phases: Phase[] = [
   {
     year: "2025",
-    title: "Proof of Mechanics",
-    subtitle: "Existing USAID/HC budgets, 5-7% fee replacing 30%+ overhead",
+    title: "Перевірка механік",
+    subtitle: "Наявні бюджети USAID / гуманітарних кластерів, ставка 5-7% замість накладних 30%+",
     color: "primary",
     milestones: [
       { label: "Банківський сектор: VR-кімнати + CSR пілот" },
-      { label: "Перший dataset 10 років приватної практики" },
+      { label: "Перший датасет 10 років приватної практики" },
       { label: "P2P платежі + крипто-кампейн (ЮНІСЕФ)" },
       { label: "EMDR адаптація (Geha, Ізраїль)" },
-      { label: "Digital coordination MVP — API-first" },
+      { label: "MVP цифрової координації — API-first" },
       { label: "EBRD-НБУ-38 банків: Хартія активована" },
     ],
   },
   {
     year: "2026",
-    title: "Regional + Military",
-    subtitle: "Blended financing, VR therapy (Bravemind), MoH sandbox",
+    title: "Регіональне покриття + військові",
+    subtitle: "Змішане фінансування, VR-терапія (Bravemind), пісочниця МОЗ",
     color: "accent",
     milestones: [
       { label: "VR Bravemind (Skip Rizzo / USC ICT) — розгортання" },
-      { label: "Centre of Excellence КНУ — методологія впливу на ВВП" },
-      { label: "Regulatory sandbox: поетапна ліцензія" },
-      { label: "HL7 FHIR інтеграція з eHealth + DHIS2" },
-      { label: "Системний фонд EBRD — blended finance" },
-      { label: "Franchise-модель приватної практики (пілот)" },
+      { label: "Центр експертизи КНУ — методологія впливу на ВВП" },
+      { label: "Регуляторна пісочниця: поетапна ліцензія" },
+      { label: "HL7 FHIR інтеграція з ЕСОЗ + DHIS2" },
+      { label: "Системний фонд EBRD — змішане фінансування" },
+      { label: "Франчайз-модель приватної практики (пілот)" },
     ],
   },
   {
     year: "2027+",
-    title: "National + Export",
-    subtitle: "eHealth sync, SaaS license (OPEX not CAPEX), model export",
+    title: "Національний масштаб + експорт",
+    subtitle: "Синхронізація з ЕСОЗ, ліцензія як послуга (операційні витрати замість капітальних), експорт моделі",
     color: "emerald",
     milestones: [
       { label: "SIBs/DIBs інструменти — повернення при KPI" },
@@ -95,10 +95,10 @@ const Roadmap = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="tag-fintech mb-4">Roadmap 2025–2027</span>
+          <span className="tag-fintech mb-4">Дорожня карта 2025–2027</span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mt-4 mb-4 text-foreground">
-            No Government Budget{" "}
-            <span className="gold-gradient-text">Required at Start</span>
+            Без державного бюджету{" "}
+            <span className="gold-gradient-text">на старті</span>
           </h2>
           <p className="text-secondary-foreground max-w-2xl text-lg">
             Три фази трансформації — від перевірки механік до національного масштабу та експорту моделі
@@ -193,15 +193,15 @@ const Roadmap = () => {
             <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary/20 bg-primary/5">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="text-sm text-primary font-medium">
-                THE ASK: Influence, Not Funding
+                Запит: вплив, а не фінансування
               </span>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-3xl mx-auto">
               {[
-                { org: "USAID", role: "Alignment signal" },
-                { org: "MoH & MinEcon", role: "Regulatory sandbox" },
-                { org: "EBRD Banking", role: "Charter compliance" },
-                { org: "Pull, Not Push", role: "De-shadowing incentive" },
+                { org: "USAID", role: "Сигнал узгодження" },
+                { org: "МОЗ і Мінекономіки", role: "Регуляторна пісочниця" },
+                { org: "EBRD Banking", role: "Дотримання Хартії" },
+                { org: "Мотивація, не примус", role: "Стимул виходу з тіні" },
               ].map((ask) => (
                 <div
                   key={ask.org}

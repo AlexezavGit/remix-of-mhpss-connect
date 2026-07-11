@@ -12,7 +12,7 @@ const SolutionsPage = () => {
   usePageSections([
     { id: "overview", label: "Огляд" },
     { id: "how", label: "Як працює" },
-    { id: "toc", label: "Theory of Change" },
+    { id: "toc", label: "Теорія змін" },
     { id: "architecture", label: "Архітектура" },
     { id: "directions", label: "Напрями" },
     { id: "prioritization", label: "Пріоритизація" },

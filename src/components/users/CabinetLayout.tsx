@@ -110,10 +110,10 @@ const CabinetLayout = ({ tag, title, lead, tone, journey, fields, submitLabel, n
             <div className="flex items-center gap-2 mb-4">
               <span className={`w-2 h-2 rounded-full ${t.dot} animate-pulse`} />
               <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/60">
-                Feel Again · Terminal
+                Feel Again · Термінал
               </span>
             </div>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-1">Sign in</h2>
+            <h2 className="font-display text-2xl font-bold text-foreground mb-1">Вхід у кабінет</h2>
             <p className="text-xs text-muted-foreground mb-5">
               Доступ — за запрошенням. Заповніть форму — ми відкриємо кабінет після MVP.
             </p>
@@ -154,7 +154,7 @@ const CabinetLayout = ({ tag, title, lead, tone, journey, fields, submitLabel, n
                 rel="noopener noreferrer"
                 className="text-foreground/50 hover:text-foreground"
               >
-                Public dashboard ↗
+                Публічний дашборд ↗
               </a>
             </div>
           </motion.form>

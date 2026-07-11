@@ -12,7 +12,7 @@ const DonorPage = () => (
       { n: "03", t: "Матчинг з виконавцями", d: "Ваша програма стає доступною фахівцям і бенефіціарам відповідного профілю." },
       { n: "04", t: "Тригер за критерієм", d: "Напр. «30% оплати для ветеранів». Умови працюють, поки виконуються KPI." },
       { n: "05", t: "Підтверджений outcome", d: "FHIR Observation → escrow release → camt.054 сетлмент з on-chain receipt." },
-      { n: "06", t: "Real-time impact dashboard", d: "Кожна сесія тегована «Funded by [Donor]». White-label ESG-панель." },
+      { n: "06", t: "Дашборд впливу в реальному часі", d: "Кожна сесія тегована «Funded by [Donor]». White-label ESG-панель." },
       { n: "07", t: "ESG / CSR звіт", d: "Workforce Resilience, Reputation, Turnkey Infrastructure — готовий пакет." },
       { n: "08", t: "Дофінансування наступних когорт", d: "Reverse Waterfall: попередні внески як валідація потреби для нових раундів." },
     ]}

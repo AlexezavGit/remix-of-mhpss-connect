@@ -51,7 +51,7 @@ const ProjectMatrix = () => {
         >
           <span className="tag-clinical mb-4">Матриця пріоритизації</span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
-            Проєкти: <span className="gold-gradient-text">Impact × Feasibility</span>
+            Проєкти: <span className="gold-gradient-text">вплив × здійсненність</span>
           </h2>
         </motion.div>
 
@@ -93,13 +93,13 @@ const ProjectMatrix = () => {
               <p className="text-xs text-secondary-foreground mb-4 leading-relaxed">{proj.description}</p>
               <div className="flex items-center gap-4">
                 <div className="flex-1">
-                  <div className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">Impact</div>
+                  <div className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">Вплив</div>
                   <div className="h-1.5 bg-muted rounded-full overflow-hidden">
                     <div className="h-full bg-primary rounded-full" style={{ width: `${proj.impact * 10}%` }} />
                   </div>
                 </div>
                 <div className="flex-1">
-                  <div className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">Feasibility</div>
+                  <div className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">Здійсненність</div>
                   <div className="h-1.5 bg-muted rounded-full overflow-hidden">
                     <div className="h-full bg-accent rounded-full" style={{ width: `${proj.feasibility * 10}%` }} />
                   </div>
