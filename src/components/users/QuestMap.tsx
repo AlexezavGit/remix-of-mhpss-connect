@@ -97,14 +97,14 @@ const TRACKS: Track[] = [
 
 /** Foundation rails (стержні) that carry ALL three tracks. */
 const RAILS = [
-  { k: "Депереоніфікований реєстр", d: "Enkidu · FHIR Patient (pseudo)" },
+  { k: "Деперсоніфікований реєстр", d: "Enkidu · пацієнт FHIR (псевдо)" },
   { k: "Проекти", d: "заводить виконавець · доступні донору" },
   { k: "Програми фінансування", d: "створює донор · доступні всім" },
   { k: "Єдиний датасет", d: "ЄСОЗ · Трембіта · MeasureReport" },
-  { k: "Ескроу-рахунки", d: "ISO 20022 · smart contracts" },
-  { k: "Автоматична звітність", d: "camt.054 · MeasureReport" },
-  { k: "Клінічні шкали / feedback", d: "PHQ-9 · GAD-7 · PCL-5 · WHO-DAS 2.0" },
-  { k: "Тригер-система за протоколом", d: "Triple Verification Oracle" },
+  { k: "Ескроу-рахунки", d: "ISO 20022 · смарт-контракти" },
+  { k: "Автоматична звітність", d: "camt.054 · звіти результатів" },
+  { k: "Клінічні шкали / зворотний звʼязок", d: "PHQ-9 · GAD-7 · PCL-5 · WHO-DAS 2.0" },
+  { k: "Тригер-система за протоколом", d: "оракул потрійної верифікації" },
 ];
 
 const toneMap: Record<Track["tone"], { border: string; text: string; bg: string; dot: string }> = {

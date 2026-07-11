@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const components = [
-  { name: "Skin in the Game", weight: 25, desc: "Особистий внесок бенефіціара / громади (соціальний договір)" },
+  { name: "Особистий внесок бенефіціара", weight: 25, desc: "Особистий внесок бенефіціара / громади (соціальний договір)" },
   { name: "Співфінансування", weight: 20, desc: "Кількість джерел (blended finance leverage)" },
   { name: "Демогр. мультиплікатор", weight: 20, desc: "Ветеран / медик / Heavy Industry = вища вага" },
   { name: "Ймовірність завершення", weight: 20, desc: "На основі регресного датасету" },
@@ -78,7 +78,7 @@ const ScoringMatrix = () => {
             viewport={{ once: true }}
             className="card-elevated p-6"
           >
-            <h3 className="font-display text-lg font-semibold text-foreground mb-2">Reverse Waterfall</h3>
+            <h3 className="font-display text-lg font-semibold text-foreground mb-2">Зворотний каскад</h3>
             <p className="text-xs text-muted-foreground mb-6">
               Механізм де-ризикування: кожен наступний учасник бачить попередній внесок як валідацію потреби.
             </p>

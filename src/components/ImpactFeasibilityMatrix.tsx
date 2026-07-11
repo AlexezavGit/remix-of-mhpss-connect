@@ -19,7 +19,7 @@ const items: Item[] = [
   { name: "Крипто-кампейн ЮНІСЕФ", layer: "FinTech", impact: 3, feasibility: 4, quickWin: true },
   { name: "Наскрізні показники ВВП", layer: "Дані", impact: 4, feasibility: 3 },
   { name: "Податкові преференції", layer: "Регуляторний", impact: 4, feasibility: 3 },
-  { name: "Regulatory sandbox", layer: "Регуляторний", impact: 4, feasibility: 3 },
+  { name: "Регуляторна пісочниця", layer: "Регуляторний", impact: 4, feasibility: 3 },
   { name: "Тренінги побратимів", layer: "Цифровий", impact: 3, feasibility: 4, quickWin: true },
   { name: "SIBs / DIBs запуск", layer: "FinTech", impact: 5, feasibility: 2 },
   { name: "eHealth інтеграція (FHIR)", layer: "Цифровий", impact: 3, feasibility: 3 },
@@ -49,10 +49,10 @@ const ImpactFeasibilityMatrix = () => {
         <div className="max-w-3xl mb-8">
           <span className="tag-fintech mb-3">Пріоритизація</span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-foreground tracking-tight">
-            Матриця Impact × Feasibility
+            Матриця вплив × здійсненність
           </h2>
           <p className="text-secondary-foreground text-lg">
-            14 проєктів на площині «вплив на систему × здійсненність у горизонті року». Верхній правий квадрант — quick wins року 1.
+            14 проєктів на площині «вплив на систему × здійсненність у горизонті року». Верхній правий квадрант — швидкі перемоги першого року.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ const ImpactFeasibilityMatrix = () => {
               <line x1={inner.x} y1={inner.y} x2={inner.x} y2={inner.y + inner.h} stroke="hsl(var(--foreground) / 0.4)" />
               {/* axis labels */}
               <text x={inner.x + inner.w / 2} y={H - 8} textAnchor="middle" fontSize="11" fill="hsl(var(--foreground) / 0.6)" style={{ fontFamily: "monospace", letterSpacing: "0.18em", textTransform: "uppercase" }}>
-                Feasibility →
+                Здійсненність →
               </text>
               <text
                 x={12}
@@ -90,10 +90,10 @@ const ImpactFeasibilityMatrix = () => {
                 transform={`rotate(-90 12 ${inner.y + inner.h / 2})`}
                 style={{ fontFamily: "monospace", letterSpacing: "0.18em", textTransform: "uppercase" }}
               >
-                Impact →
+                Вплив →
               </text>
               <text x={xFor(4.5)} y={yFor(4.7)} fontSize="9" fill="hsl(var(--gold-bright))" style={{ fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-                Quick Wins
+                Швидкі перемоги
               </text>
 
               {/* dots */}
@@ -131,7 +131,7 @@ const ImpactFeasibilityMatrix = () => {
           {/* Quick wins list */}
           <div className="card-elevated p-6">
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[hsl(var(--gold-bright))] mb-4">
-              Quick Wins · Рік 1
+              Швидкі перемоги · Рік 1
             </div>
             <div className="space-y-3">
               {quickWins.map((q) => (
@@ -140,7 +140,7 @@ const ImpactFeasibilityMatrix = () => {
                   <div className="flex-1">
                     <div className="font-display text-sm font-bold text-foreground">{q.name}</div>
                     <div className="font-mono text-[10px] uppercase tracking-widest text-foreground/50 mt-0.5">
-                      {q.layer} · Impact {q.impact}/5 · Feasibility {q.feasibility}/5
+                      {q.layer} · Вплив {q.impact}/5 · Здійсненність {q.feasibility}/5
                     </div>
                   </div>
                 </div>

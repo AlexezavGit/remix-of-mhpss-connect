@@ -72,7 +72,7 @@ const iaptData = {
     { label: "Навчено за 15 років", value: "~12,000 терапевтів", detail: "Paid clinical placement: £26-31K/рік стипендія під час навчання" },
     { label: "Конверсія випускників", value: "60-70%", detail: "Завдяки: оплачуваному стажуванню, гарантованому працевлаштуванню в NHS, супервізії 1:8" },
     { label: "Пацієнтів на рік", value: "~1.8 млн (2023)", detail: "Від 0 до 1.8 млн за 15 років. Найбільша програма MHPSS у світі" },
-    { label: "Recovery rate", value: "50-52%", detail: "Вимірюється стандартизовано: PHQ-9, GAD-7 на кожній сесії" },
+    { label: "Показник одужання", value: "50-52%", detail: "Вимірюється стандартизовано: PHQ-9, GAD-7 на кожній сесії" },
     { label: "Модель", value: "Stepped care", detail: "Step 1: guided self-help. Step 2: CBT/EMDR групи. Step 3: індивідуальна терапія" },
   ],
   relevance: "IAPT показує: масштабування можливе лише через системне державне фінансування навчання. Україна може адаптувати модель через blended finance (донори + держбюджет), але без fiscal commitment конверсія буде 30-40%, не 60-70%.",
@@ -238,7 +238,7 @@ const GazellesPipeline = () => {
             <div>
               <div className="stat-number text-3xl mb-1">~30-40K</div>
               <div className="text-xs text-muted-foreground">Рік 3-4: зростання</div>
-              <div className="text-[10px] text-secondary-foreground mt-1">Franchise + IAPT-lite</div>
+              <div className="text-[10px] text-secondary-foreground mt-1">далі: нові когорти + франчайз-модель</div>
             </div>
             <div>
               <div className="stat-number text-3xl mb-1">~50-60K</div>

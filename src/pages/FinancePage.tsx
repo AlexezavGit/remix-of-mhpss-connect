@@ -37,9 +37,9 @@ const sectors = [
 
 const FinancePage = () => {
   usePageSections([
-    { id: "waterfall", label: "Water­fall" },
-    { id: "blended", label: "Blended Finance" },
-    { id: "scoring", label: "Scoring" },
+    { id: "waterfall", label: "Каскад" },
+    { id: "blended", label: "Змішане фінансування" },
+    { id: "scoring", label: "Оцінювання" },
     { id: "sectors", label: "Сектори" },
   ]);
   return (

@@ -7,9 +7,9 @@ import SiteFooter from "@/components/SiteFooter";
 import { usePageSections } from "@/context/PageNavContext";
 
 const audiences = [
-  { tag: "tag-fintech", audience: "Банкіри та держава", title: "Payment Infrastructure", desc: "Платіжна інфраструктура для MHPSS: масштаб, регуляторна пісочниця, ROI." },
-  { tag: "tag-digital", audience: "Гуманітарники та донори", title: "Digital Accountability", desc: "Digital tracking транзакцій + narrative autoreporting донору в реальному часі." },
-  { tag: "tag-clinical", audience: "Клініцисти та практики", title: "Digital Practice", desc: "CRM, звітність, потік клієнтів і вихід з тіні через дегресивну ставку 7→3%." },
+  { tag: "tag-fintech", audience: "Банкіри та держава", title: "Платіжна інфраструктура", desc: "Платіжна інфраструктура для MHPSS: масштаб, регуляторна пісочниця, повернення інвестицій." },
+  { tag: "tag-digital", audience: "Гуманітарники та донори", title: "Цифрова підзвітність", desc: "Цифровий облік транзакцій і автоматична наративна звітність донору в реальному часі." },
+  { tag: "tag-clinical", audience: "Клініцисти та практики", title: "Цифрова практика", desc: "CRM, звітність, потік клієнтів і вихід з тіні через дегресивну ставку 7→3%." },
 ];
 
 const UsersPage = () => {
@@ -17,8 +17,8 @@ const UsersPage = () => {
     { id: "intro", label: "Огляд" },
     { id: "audiences", label: "Три аудиторії" },
     { id: "quest", label: "Квест-мапа" },
-    { id: "scenario", label: "Beneficiary Journey" },
-    { id: "scoring", label: "Scoring · Waterfall" },
+    { id: "scenario", label: "Шлях бенефіціара" },
+    { id: "scoring", label: "Оцінювання · Каскад" },
     { id: "cabinets", label: "Кабінети" },
   ]);
 

@@ -328,38 +328,53 @@ export const PATHWAYS: Pathway[] = [
 export const INTEGRATION_PORTS: Array<{
   id: string;
   label: string;
+  /** Angle in degrees around the ring (0° = top / north). */
+  deg: number;
   desc: { ua: string; en: string };
 }> = [
   {
     id: "esoz",
     label: "ЄСОЗ",
+    deg: 45,
     desc: {
-      ua: "Єдина державна електронна система охорони здоров'я. Інтеграційні точки: Patient, Encounter, Observation.",
+      ua: "Єдина державна електронна система охорони здоров'я. Точки: Patient, Encounter, Observation.",
       en: "Ukrainian state EHR. Integration points: Patient, Encounter, Observation.",
     },
   },
   {
     id: "trembita",
     label: "Трембіта",
+    deg: 105,
     desc: {
       ua: "Шина державної взаємодії. Точки обміну верифікованими подіями.",
       en: "State interoperability bus. Verified-event exchange points.",
     },
   },
   {
-    id: "vc",
-    label: "W3C VC Registry",
+    id: "fintech",
+    label: "Фінтех",
+    deg: 180,
     desc: {
-      ua: "Реєстр верифікованих облікових даних провайдерів і валідаторів.",
-      en: "Registry of provider and validator verifiable credentials.",
+      ua: "Банківські рейки, ескроу за протоколом, ISO 20022 pain.001 / camt.054, on-chain receipt.",
+      en: "Banking rails, protocol-bound escrow, ISO 20022 pain.001 / camt.054, on-chain receipt.",
     },
   },
   {
     id: "donor",
-    label: "Donor reports",
+    label: "Донорські звіти",
+    deg: 255,
     desc: {
-      ua: "Агрегований outcome-репортинг для донорів різного типу (приватні, бі/мульти, IFI).",
+      ua: "Агрегована звітність з результатів для донорів усіх типів (приватні, бі/мульти, IFI).",
       en: "Aggregated outcome reports for donors of all types (private, bi/multi, IFIs).",
+    },
+  },
+  {
+    id: "vc",
+    label: "W3C VC · реєстр",
+    deg: 315,
+    desc: {
+      ua: "Реєстр верифікованих облікових даних провайдерів і валідаторів.",
+      en: "Registry of provider and validator verifiable credentials.",
     },
   },
 ];

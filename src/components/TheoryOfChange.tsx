@@ -21,7 +21,7 @@ const TheoryOfChange = () => {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span className="tag-digital mb-4">Theory of Change</span>
+          <span className="tag-digital mb-4">Теорія змін</span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
             Ланцюг <span className="gold-gradient-text">трансформації</span>
           </h2>
