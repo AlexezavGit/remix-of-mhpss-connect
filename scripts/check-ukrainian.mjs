@@ -39,7 +39,7 @@ const ALLOW = new Set(
     "demo","email","tag","tags","hub","map","case","cases","scoring","fintech","clinical","digital","blended","finance","franchise","lite","recovery","rate","reverse","skin","game","regulatory","sandbox","proof","mechanics","required","canonical","donor","donors","proposal","policy","brief","logframe","opex","capex","saas","mvp","first","regional","military","national","export","sync","charter","overhead","fee","budgets","existing","replacing","paid","placement","stepped","care","paypal",
     "workforce","gap","prevalence","integration","accountability","economic","shadow","economy","embassy","theory","change","page","not","found","oops","impact","feasibility","practice","journey","beneficiary","payment","infrastructure","system","status","operational","uptime","region","central","north","version","build","today","need","coverage","name","role","country","license","amount","focus","scope","patient","pseudo","smart","contracts","measurereport","triple","verification","embassy","goal","goals","input","output","outcome","activity",
     "start","stop","on","off","in","out","up","a","an","the","of","to","by","is","or","and","for","with","from","as","at","be","not","no",
-    "en","uk","ua","ru","anon","prov","real","time",
+    "en","uk","ua","ru","anon","prov","real","time","xxxxx","health","england","roi","esg","csr","gps","crm","vc","vcs","w3c","spv",
   ].map((s) => s.toLowerCase())
 );
 
