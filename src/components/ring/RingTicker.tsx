@@ -71,7 +71,7 @@ const RingTicker = () => {
         return (
           <div
             key={n.label + i}
-            className={`relative flex items-center gap-2 shrink-0 min-w-[170px] md:min-w-0 ${i > 0 ? "md:border-l md:border-foreground/10 md:pl-4" : ""}`}
+            className={`relative flex items-center gap-2 shrink-0 min-w-max md:min-w-0 ${i > 0 ? "md:border-l md:border-foreground/10 md:pl-4" : ""}`}
           >
             <MiniBars
               seed={n.label}
@@ -90,7 +90,7 @@ const RingTicker = () => {
               {suffix && <span className="text-[11px] font-semibold ml-0.5">{suffix}</span>}
             </span>
             <Arrow delta={n.delta} polarity={n.polarity} />
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/55 truncate">
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/55 whitespace-nowrap md:truncate">
               {n.label.split("·")[0].split("(")[0].trim()}
             </span>
           </div>

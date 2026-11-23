@@ -75,8 +75,8 @@ const CopperRing = () => {
 
       <div className="relative max-w-[1440px] mx-auto px-4 sm:px-8 pt-1.5 pb-1.5 pointer-events-auto">
         {/* Row 1 — Global nav (unified height ~34px, unified font-mono 11px) */}
-        <div className="flex items-center justify-between gap-4 h-[34px]">
-          <Link to="/" className="flex items-center gap-2 group shrink-0">
+        <div className="flex flex-wrap md:flex-nowrap items-center justify-between gap-x-4 md:h-[34px]">
+          <Link to="/" className="order-1 flex items-center gap-2 group shrink-0 h-[34px]">
             <img
               src={theme === "light" ? logoDark : logoLight}
               alt="Feel Again"
@@ -87,7 +87,7 @@ const CopperRing = () => {
             </span>
           </Link>
 
-          <div className="flex-1 flex items-center justify-center gap-2 sm:gap-4 min-w-0">
+          <div className="order-3 md:order-2 basis-full md:basis-auto flex-1 flex items-center justify-start md:justify-center gap-1 sm:gap-4 min-w-0 h-[34px] overflow-x-auto no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 border-t border-foreground/5 md:border-0">
             {MENU.map((m) => {
               const active =
                 (m.to && m.to !== "/" && pathname.startsWith(m.to)) ||
@@ -96,7 +96,7 @@ const CopperRing = () => {
                 <button
                   key={m.id}
                   onClick={() => openMenu(m)}
-                  className={`relative font-mono uppercase tracking-[0.22em] text-[11px] font-semibold px-2 py-1
+                  className={`relative font-mono uppercase tracking-[0.22em] text-[11px] font-semibold shrink-0 px-2 py-1
                     outline-none focus-visible:ring-1 focus-visible:ring-[hsl(var(--gold-bright))] rounded-sm whitespace-nowrap
                     ${active ? "text-[hsl(var(--gold-bright))]" : "text-foreground/80 hover:text-[hsl(var(--gold-bright))]"} transition-colors`}
                 >
@@ -112,7 +112,7 @@ const CopperRing = () => {
             })}
           </div>
 
-          <div className="flex items-center gap-1 shrink-0">
+          <div className="order-2 md:order-3 flex items-center gap-1 shrink-0 h-[34px]">
             <LanguageToggle />
             <ThemeToggle />
           </div>
@@ -122,14 +122,14 @@ const CopperRing = () => {
         <TickScale className="mt-0.5" />
 
         {/* Row 2 — Local page nav (unified height ~30px, same font) */}
-        <div className="min-h-[30px] flex items-center">
+        <div className="h-[30px] flex items-center min-w-0 overflow-hidden">
           <PageNav />
         </div>
 
         <TickScale className="opacity-70" />
 
         {/* Row 3 — Ticker (unified font-mono, scaled values) */}
-        <div className="min-h-[34px]">
+        <div className="h-[34px] flex items-center min-w-0 overflow-hidden">
           <RingTicker />
         </div>
 
