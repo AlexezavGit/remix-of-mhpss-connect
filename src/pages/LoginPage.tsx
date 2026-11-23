@@ -23,8 +23,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-stretch pt-32 pb-10" style={{ background: "var(--gradient-hero)" }}>
-      <div className="section-container grid lg:grid-cols-[1fr_auto_1fr] gap-8 items-start">
+    <div className="min-h-screen flex items-stretch pt-32 pb-10 overflow-x-hidden" style={{ background: "var(--gradient-hero)" }}>
+      <div className="section-container grid grid-cols-1 min-w-0 lg:grid-cols-[1fr_auto_1fr] gap-8 items-start">
         <aside id="status" className="hidden lg:block text-right space-y-6 pt-16 scroll-mt-32">
           <div>
             <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-foreground/50">Система</div>
