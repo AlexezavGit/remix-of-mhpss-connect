@@ -12,7 +12,7 @@ const steps = [
 
 const TheoryOfChange = () => {
   return (
-    <section className="py-24 bg-transparent">
+    <section className="py-24 bg-transparent overflow-x-hidden">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
