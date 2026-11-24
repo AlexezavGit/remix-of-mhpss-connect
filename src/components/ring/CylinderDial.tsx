@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
  */
 export interface DialItem { id: string; label: string; }
 
-const RADIUS = 150;
+const RADIUS = 130;
 const DRAG_GAIN = 0.42; // deg per px, same as the reference
 
 const CylinderDial = ({
@@ -91,7 +91,7 @@ const CylinderDial = ({
             style={{
               transform: `translate(-50%,-50%) rotateY(${a}deg) translateZ(${RADIUS}px)`,
               transition: dragging ? "none" : "transform .34s cubic-bezier(.2,.9,.2,1), opacity .3s",
-              opacity: c > 0.06 ? Math.max(0.22, c) : 0,
+              opacity: c > 0.06 ? Math.max(0.45, c) : 0,
               pointerEvents: c > 0.5 ? "auto" : "none",
               backfaceVisibility: "hidden",
             }}
@@ -101,8 +101,8 @@ const CylinderDial = ({
         );
       })}
       {/* edge fades + centre pointer */}
-      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-background to-transparent" />
-      <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-background to-transparent" />
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-background to-transparent" />
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-background to-transparent" />
       <div aria-hidden className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-6 rounded-full bg-[hsl(var(--gold-bright))]" />
     </div>
   );

@@ -19,6 +19,7 @@ import NotFound from "./pages/NotFound";
 import { I18nProvider } from "./i18n";
 import { ThemeProvider } from "./theme/ThemeProvider";
 import CopperRing from "./components/ring/CopperRing";
+import PageMetrics from "./components/ring/PageMetrics";
 import QuestPaths from "./components/background/QuestPaths";
 import { PageNavProvider } from "./context/PageNavContext";
 
@@ -35,6 +36,7 @@ const App = () => (
             <PageNavProvider>
               <QuestPaths />
               <CopperRing />
+              <PageMetrics />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/solutions" element={<SolutionsPage />} />

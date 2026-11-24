@@ -19,7 +19,7 @@ const PageMetrics = () => {
             <div key={n.label + i} className={`min-w-0 ${i > 0 ? "md:border-l md:border-foreground/10 md:pl-4" : ""}`}>
               <div className="flex items-center gap-1.5">
                 <MiniBars seed={n.label} trend={n.delta} color={color} height={10} />
-                <span className="font-mono font-bold text-[15px] md:text-[18px] leading-none text-foreground">{n.value}</span>
+                <span className="font-mono font-bold text-[15px] md:text-[18px] leading-none text-foreground whitespace-nowrap">{n.value.replace("/рік", "")}</span>
                 {n.delta && n.delta !== "flat" && (
                   <span style={{ color }} className="text-[10px] leading-none">{n.delta === "up" ? "▲" : "▼"}</span>
                 )}

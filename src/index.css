@@ -154,8 +154,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-color: hsl(var(--navy-deep));
-    padding-top: clamp(132px, 16vh, 176px); /* clear taller 3-row ring on top */
+    padding-top: 150px; /* clear the fixed ring (mobile: logo + dial + page menu) */
   }
+
+  @media (min-width: 768px) { body { padding-top: 104px; } }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);

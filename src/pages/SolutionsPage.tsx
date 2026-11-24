@@ -21,7 +21,7 @@ const SolutionsPage = () => {
 
   return (
     <div className="min-h-screen">
-      <section id="overview" className="pt-14 md:pt-16 pb-10 md:pb-14">
+      <section id="overview" className="pt-10 md:pt-14 pb-10 md:pb-14">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <span className="tag-fintech mb-3">Резюме · Рішення</span>
