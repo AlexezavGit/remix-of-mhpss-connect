@@ -87,7 +87,7 @@ const CopperRing = () => {
             </span>
           </Link>
 
-          <div className="hidden md:flex order-3 md:order-2 basis-full md:basis-auto flex-1 items-center justify-start md:justify-center gap-1 sm:gap-4 min-w-0 h-[34px] overflow-x-auto no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 border-t border-foreground/5 md:border-0">
+          <div className="hidden order-3 md:order-2 basis-full md:basis-auto flex-1 items-center justify-start md:justify-center gap-1 sm:gap-4 min-w-0 h-[34px] overflow-x-auto no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 border-t border-foreground/5 md:border-0">
             {MENU.map((m) => {
               const active =
                 (m.to && m.to !== "/" && pathname.startsWith(m.to)) ||
@@ -112,11 +112,11 @@ const CopperRing = () => {
             })}
           </div>
 
-          <div className="md:hidden order-3 basis-full -mx-4 border-t border-foreground/5">
+          <div className="order-3 md:order-2 basis-full md:basis-auto md:flex-1 min-w-0 -mx-4 md:mx-0 border-t border-foreground/5 md:border-0">
             <CylinderDial
               items={MENU.map((m) => ({ id: m.id, label: m.label[lang] }))}
               activeIndex={MENU.findIndex((m) => m.to && pathname.startsWith(m.to))}
-              onSelect={(i) => openMenu(MENU[i])}
+              onSelect={(i, tapped) => { if (tapped || !MENU[i].href) openMenu(MENU[i]); }}
             />
           </div>
 

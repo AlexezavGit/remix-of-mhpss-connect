@@ -8,7 +8,6 @@ import { useEffect, useRef, useState } from "react";
  */
 export interface DialItem { id: string; label: string; }
 
-const RADIUS = 130;
 const DRAG_GAIN = 0.42; // deg per px, same as the reference
 
 const CylinderDial = ({
@@ -18,10 +17,18 @@ const CylinderDial = ({
 }: {
   items: DialItem[];
   activeIndex: number;
-  onSelect: (i: number) => void;
+  onSelect: (i: number, tapped?: boolean) => void;
 }) => {
   const n = items.length;
-  const per = 360 / n;
+  // Wider drum on large screens; items spaced along an arc so neighbours stay readable.
+  const [wide, setWide] = useState(() => typeof window !== "undefined" && window.innerWidth >= 768);
+  useEffect(() => {
+    const on = () => setWide(window.innerWidth >= 768);
+    window.addEventListener("resize", on);
+    return () => window.removeEventListener("resize", on);
+  }, []);
+  const per = wide ? 24 : 38;
+  const RADIUS = wide ? 560 : 210;
   const [rot, setRot] = useState(-Math.max(0, activeIndex) * per);
   const [dragging, setDragging] = useState(false);
   const moved = useRef(false);
@@ -31,8 +38,9 @@ const CylinderDial = ({
     // rotate the shortest way to the active item
     setRot((r) => {
       const target = -activeIndex * per;
-      const k = Math.round((r - target) / 360);
-      return target + k * 360;
+      const loop = n * per;
+      const k = Math.round((r - target) / loop);
+      return target + k * loop;
     });
   }, [activeIndex, per, dragging]);
 
@@ -70,14 +78,18 @@ const CylinderDial = ({
 
   return (
     <div
-      className="relative h-[44px] w-full overflow-hidden cursor-grab active:cursor-grabbing"
-      style={{ perspective: 560, touchAction: "pan-y" }}
+      className="relative h-[44px] md:h-[40px] w-full overflow-hidden cursor-grab active:cursor-grabbing"
+      style={{ perspective: wide ? 1400 : 700, touchAction: "pan-y" }}
       onPointerDown={onPointerDown}
       role="tablist"
       aria-label="Глобальне меню"
     >
       {items.map((it, i) => {
-        const a = i * per + rot;
+        // position on the drum, wrapped so the nearest copy is shown
+        let d = (i + rot / per) % n;
+        if (d > n / 2) d -= n;
+        if (d < -n / 2) d += n;
+        const a = d * per;
         const c = Math.cos((a * Math.PI) / 180);
         const active = i === current;
         return (
@@ -85,14 +97,14 @@ const CylinderDial = ({
             key={it.id}
             role="tab"
             aria-selected={active}
-            onClick={() => { if (!moved.current) onSelect(i); }}
-            className={`absolute left-1/2 top-1/2 whitespace-nowrap font-mono uppercase tracking-[0.2em] text-[13px] font-semibold
+            onClick={() => { if (!moved.current) onSelect(i, true); }}
+            className={`absolute left-1/2 top-1/2 whitespace-nowrap font-mono uppercase tracking-[0.18em] text-[13px] md:text-[14px] font-semibold
               ${active ? "text-[hsl(var(--gold-bright))]" : "text-foreground/70"}`}
             style={{
-              transform: `translate(-50%,-50%) rotateY(${a}deg) translateZ(${RADIUS}px)`,
+              transform: `translate(-50%,-50%) translateZ(-${RADIUS}px) rotateY(${a}deg) translateZ(${RADIUS}px)`,
               transition: dragging ? "none" : "transform .34s cubic-bezier(.2,.9,.2,1), opacity .3s",
-              opacity: c > 0.06 ? Math.max(0.45, c) : 0,
-              pointerEvents: c > 0.5 ? "auto" : "none",
+              opacity: c > 0.3 ? Math.min(1, 0.35 + c * c * 0.65) : 0,
+              pointerEvents: c > 0.6 ? "auto" : "none",
               backfaceVisibility: "hidden",
             }}
           >
