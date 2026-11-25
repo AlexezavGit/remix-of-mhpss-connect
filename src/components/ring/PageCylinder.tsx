@@ -1,6 +1,6 @@
-import { ReactNode, useRef } from "react";
+import { ReactNode, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 // Order matches the global menu so pages turn the same way as the drum.
 const ORDER = ["/insights", "/solutions", "/users", "/demo", "/consortium"];
@@ -13,9 +13,12 @@ const sectionIndex = (p: string) => {
 const PageCylinder = ({ children }: { children: (location: ReturnType<typeof useLocation>) => ReactNode }) => {
   const location = useLocation();
   const idx = sectionIndex(location.pathname);
-  const prev = useRef(idx);
-  const dir = idx === prev.current ? 0 : idx > prev.current ? 1 : -1;
-  prev.current = idx;
+  const reducedMotion = useReducedMotion();
+  const [turn, setTurn] = useState({ idx, dir: 0 });
+  if (turn.idx !== idx) {
+    setTurn({ idx, dir: idx > turn.idx ? 1 : -1 });
+  }
+  const dir = turn.dir;
   const key = idx < 0 ? location.pathname : ORDER[idx];
 
   return (
@@ -29,12 +32,12 @@ const PageCylinder = ({ children }: { children: (location: ReturnType<typeof use
             center: { rotateY: 0, x: "0%", opacity: 1 },
             exit: (d: number) => ({ rotateY: d * -28, x: `${d * -18}%`, opacity: 0 }),
           }}
-          initial="enter"
+          initial={reducedMotion ? false : "enter"}
           animate="center"
-          exit="exit"
-          transition={{ duration: 0.38, ease: [0.2, 0.9, 0.2, 1] }}
+          exit={reducedMotion ? "center" : "exit"}
+          transition={{ duration: reducedMotion ? 0 : 0.38, ease: [0.2, 0.9, 0.2, 1] }}
           style={{ transformOrigin: "50% 50% -600px" }}
-          onAnimationComplete={() => window.scrollTo({ top: 0 })}
+          onAnimationComplete={(definition) => { if (definition === "center") window.scrollTo({ top: 0 }); }}
         >
           {children(location)}
         </motion.div>

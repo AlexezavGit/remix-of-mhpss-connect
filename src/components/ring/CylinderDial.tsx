@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 /**
  * CylinderDial — mobile global menu as a physical rotating cylinder
@@ -20,6 +22,7 @@ const CylinderDial = ({
   onSelect: (i: number, tapped?: boolean) => void;
 }) => {
   const n = items.length;
+  const reducedMotion = useReducedMotion();
   // Wider drum on large screens; items spaced along an arc so neighbours stay readable.
   const [wide, setWide] = useState(() => typeof window !== "undefined" && window.innerWidth >= 768);
   useEffect(() => {
@@ -93,23 +96,24 @@ const CylinderDial = ({
         const c = Math.cos((a * Math.PI) / 180);
         const active = i === current;
         return (
-          <button
+          <Button
+            variant="ghost"
             key={it.id}
             role="tab"
             aria-selected={active}
             onClick={() => { if (!moved.current) onSelect(i, true); }}
-            className={`absolute left-1/2 top-1/2 whitespace-nowrap font-mono uppercase tracking-[0.18em] text-[13px] md:text-[14px] font-semibold
+            className={`absolute left-1/2 top-1/2 h-8 px-1 whitespace-nowrap font-mono uppercase tracking-normal text-[13px] md:text-[14px] font-semibold
               ${active ? "text-[hsl(var(--gold-bright))]" : "text-foreground/70"}`}
             style={{
               transform: `translate(-50%,-50%) translateZ(-${RADIUS}px) rotateY(${a}deg) translateZ(${RADIUS}px)`,
-              transition: dragging ? "none" : "transform .34s cubic-bezier(.2,.9,.2,1), opacity .3s",
+              transition: dragging || reducedMotion ? "none" : "transform .34s cubic-bezier(.2,.9,.2,1), opacity .3s",
               opacity: c > 0.3 ? Math.min(1, 0.35 + c * c * 0.65) : 0,
               pointerEvents: c > 0.6 ? "auto" : "none",
               backfaceVisibility: "hidden",
             }}
           >
             {it.label}
-          </button>
+          </Button>
         );
       })}
       {/* edge fades + centre pointer */}
