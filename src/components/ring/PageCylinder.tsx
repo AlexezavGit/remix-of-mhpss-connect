@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 // Order matches the global menu so pages turn the same way as the drum.
-const ORDER = ["/insights", "/solutions", "/users", "/demo", "/consortium"];
+const ORDER = ["/insights", "/solutions", "/users", "/consortium", "/demo"];
 const sectionIndex = (p: string) => {
   const i = ORDER.findIndex((r) => p.startsWith(r));
   return i < 0 ? -1 : i;

@@ -171,6 +171,15 @@ const DemoPage = () => {
         </div>
       </section>
 
+      <section id="offer-link" className="py-12">
+        <div className="section-container text-center">
+          <p className="text-secondary-foreground mb-4">Готові працювати разом, а не лише подивитися?</p>
+          <Link to="/offer" className="tag-gold hover:bg-[hsl(var(--gold)/0.2)] transition-colors">
+            Відкрита оферта імплементаційного партнера →
+          </Link>
+        </div>
+      </section>
+
       <SiteFooter />
     </div>
   );

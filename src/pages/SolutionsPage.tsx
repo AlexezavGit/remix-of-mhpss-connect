@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 import HowItWorks from "@/components/HowItWorks";
 import ThreeDirections from "@/components/ThreeDirections";
 import ConnectionAxes from "@/components/ConnectionAxes";
-import LayerArchitecture from "@/components/LayerArchitecture";
-import TheoryOfChange from "@/components/TheoryOfChange";
-import ImpactFeasibilityMatrix from "@/components/ImpactFeasibilityMatrix";
+import OutputFormats from "@/components/OutputFormats";
 import SiteFooter from "@/components/SiteFooter";
 import { usePageSections } from "@/context/PageNavContext";
 
@@ -100,23 +98,15 @@ const SolutionsPage = () => {
         <HowItWorks />
       </section>
 
-      <section id="toc" className="scroll-mt-32">
-        <TheoryOfChange />
-      </section>
-
-      <section id="architecture" className="scroll-mt-32">
-        <LayerArchitecture />
-      </section>
-
       <section id="directions" className="scroll-mt-32">
         <ThreeDirections />
       </section>
 
-      <ImpactFeasibilityMatrix />
-
       <section id="axes" className="scroll-mt-32">
         <ConnectionAxes />
       </section>
+
+      <OutputFormats />
 
       <SiteFooter />
     </div>

@@ -8,7 +8,12 @@ const PageMetrics = () => {
   const items = contextNumbers(pathname);
   if (!items.length) return null;
   return (
-    <section aria-label="Ключові показники" className="section-container pt-4 md:pt-6 pb-2">
+    <section
+      aria-label="Ключові показники"
+      className="sticky z-40 bg-background/90 backdrop-blur-md transition-[top] duration-300"
+      style={{ top: "var(--metrics-top, 0px)" }}
+    >
+      <div className="section-container pt-2 pb-1">
       <div className="grid grid-cols-3 md:grid-cols-5 gap-x-3 gap-y-4 border-y border-foreground/10 py-3">
         {items.map((n, i) => {
           const color =
@@ -30,6 +35,7 @@ const PageMetrics = () => {
             </div>
           );
         })}
+      </div>
       </div>
     </section>
   );

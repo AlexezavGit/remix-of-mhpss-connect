@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const outputs = [
   {
-    n: "01",
+    n: "01", slug: "pitch-deck",
     icon: "◆",
     order: "Перший",
     title: "Pitch Deck / Інвестори",
@@ -10,7 +11,7 @@ const outputs = [
     audience: "ЕБРД, НБУ, банки, корпорації",
   },
   {
-    n: "02",
+    n: "02", slug: "donor-proposal",
     icon: "▤",
     order: "Другий",
     title: "Пропозиція для донора",
@@ -18,23 +19,15 @@ const outputs = [
     audience: "USAID, World Bank, UNICEF, EU",
   },
   {
-    n: "03",
-    icon: "★",
-    order: "Третій",
-    title: "Пропозиція для Посольства США",
-    body: "Якірна інвестиція $2B у контексті. Узгодженість з Grand Bargain та реформами Tom Fletcher.",
-    audience: "Посольство США",
-  },
-  {
-    n: "04",
+    n: "03", slug: "policy-brief",
     icon: "▲",
-    order: "Четвертий",
+    order: "Третій",
     title: "Policy Brief для КМУ",
     body: "Стратегічний документ: регуляторний sandbox, податкові преференції, поетапна ліцензія.",
     audience: "Координаційна рада КМУ, МОЗ, МінЕконом",
   },
   {
-    n: "05",
+    n: "04", slug: "strategy-map",
     icon: "◐",
     order: "Живий документ",
     title: "Стратегічна карта",
@@ -52,7 +45,7 @@ const OutputFormats = () => (
           Від стратегії до дії
         </h2>
         <p className="text-secondary-foreground text-lg">
-          П'ять деліверейблів, які консорціум може підготувати під конкретного стейкхолдера — з тих самих
+          Чотири документи, які консорціум може підготувати під конкретного стейкхолдера — з тих самих
           цифр і тієї ж теорії змін.
         </p>
       </div>
@@ -65,8 +58,9 @@ const OutputFormats = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.06 }}
-            className="card-elevated p-6 flex flex-col"
+            className="card-elevated flex flex-col"
           >
+            <Link to={`/docs/${o.slug}`} className="p-6 flex flex-col flex-1 hover:bg-foreground/[0.03] transition-colors rounded-[inherit]">
             <div className="flex items-center justify-between mb-3">
               <span
                 aria-hidden
@@ -83,7 +77,9 @@ const OutputFormats = () => (
             <div className="pt-3 border-t border-border/40">
               <div className="font-mono text-[9px] uppercase tracking-widest text-foreground/50 mb-0.5">Аудиторія</div>
               <div className="text-xs text-foreground/80">{o.audience}</div>
+              <div className="mt-3 font-mono text-[10px] uppercase tracking-widest text-[hsl(var(--gold-bright))]">Відкрити документ →</div>
             </div>
+            </Link>
           </motion.div>
         ))}
       </div>

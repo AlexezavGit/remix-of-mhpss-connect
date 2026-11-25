@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useT } from "@/i18n";
 import SiteFooter from "@/components/SiteFooter";
-import OutputFormats from "@/components/OutputFormats";
+import TheoryOfChange from "@/components/TheoryOfChange";
+import LayerArchitecture from "@/components/LayerArchitecture";
+import ImpactFeasibilityMatrix from "@/components/ImpactFeasibilityMatrix";
 import { usePageSections } from "@/context/PageNavContext";
 import openSociety from "@/assets/logos/open-society.png";
 import enkidu from "@/assets/logos/enkidu.png";
@@ -77,7 +79,9 @@ const ConsortiumPage = () => {
     { id: "manifest", label: "Маніфест" },
     { id: "partners", label: "Партнери" },
     { id: "benefits", label: "Аргумент приєднання" },
-    { id: "outputs", label: "Деліверейбли" },
+    { id: "toc", label: "Ланцюг трансформації" },
+    { id: "architecture", label: "Шість шарів" },
+    { id: "matrix", label: "Вплив × здійсненність" },
     { id: "join", label: "Долучитися" },
   ]);
 
@@ -168,7 +172,9 @@ const ConsortiumPage = () => {
         </div>
       </section>
 
-      <OutputFormats />
+      <section id="toc" className="scroll-mt-32"><TheoryOfChange /></section>
+      <section id="architecture" className="scroll-mt-32"><LayerArchitecture /></section>
+      <section id="matrix" className="scroll-mt-32"><ImpactFeasibilityMatrix /></section>
 
       {/* CTA */}
       <section id="join" className="py-20 bg-transparent scroll-mt-32">
@@ -178,14 +184,14 @@ const ConsortiumPage = () => {
             <span className="text-sm text-[hsl(var(--gold-bright))] font-medium">Відкрита коаліція · заявки на постійній основі</span>
           </div>
           <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Долучитися до консорціуму
+            Стати імплементаційним партнером
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/demo" className="tag-fintech hover:bg-primary/20 transition-colors">
-              Запит на розмову →
+            <Link to="/offer" className="tag-gold hover:bg-[hsl(var(--gold)/0.2)] transition-colors">
+              Відкрита оферта імплементаційного партнера →
             </Link>
-            <Link to="/solutions" className="tag-gold hover:bg-[hsl(var(--gold)/0.2)] transition-colors">
-              Подивитися рішення
+            <Link to="/demo" className="tag-fintech hover:bg-primary/20 transition-colors">
+              Замовити демо →
             </Link>
           </div>
         </div>

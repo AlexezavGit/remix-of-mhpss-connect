@@ -30,8 +30,8 @@ const MENU: MenuItem[] = [
   { id: "insights",   label: { ua: "Дані та Інсайти", en: "Data & Insights" }, href: "https://dashboard.feelagain.me" },
   { id: "solutions",  label: { ua: "Рішення",          en: "Solutions" },        to: "/solutions" },
   { id: "login",      label: { ua: "Користувачам",     en: "For users" },        to: "/users" },
+  { id: "consortium", label: { ua: "Партнерам",        en: "Partners" },         to: "/consortium" },
   { id: "demo",       label: { ua: "Демо",             en: "Demo" },             to: "/demo" },
-  { id: "consortium", label: { ua: "Консорціум",       en: "Consortium" },       to: "/consortium" },
 ];
 
 const CopperRing = () => {
@@ -55,6 +55,17 @@ const CopperRing = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const navRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+    const apply = () => document.documentElement.style.setProperty("--metrics-top", hidden ? "0px" : `${el.offsetHeight}px`);
+    apply();
+    const ro = new ResizeObserver(apply);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [hidden]);
+
   const openMenu = (m: MenuItem) => {
     if (m.href) {
       window.open(m.href, "_blank", "noopener,noreferrer");
@@ -65,6 +76,7 @@ const CopperRing = () => {
 
   return (
     <motion.nav
+      ref={navRef}
       aria-label={t("ring.aria")}
       className="fixed top-0 left-0 right-0 z-50 select-none pointer-events-none"
       initial={false}
